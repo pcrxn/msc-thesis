@@ -1,0 +1,98 @@
+%-------------------------------------------------------------------------------
+% Packages
+%-------------------------------------------------------------------------------
+
+% Doc and page setup
+\documentclass[12pt, twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}
+% Reference management
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref} % For cross-referenced hyperlinks, with colouring
+\usepackage[style=nature, backend=biber, hyperref=true, natbib=true]{biblatex}
+%\usepackage[nottoc]{tocbibind} % Comment out to include bibliography in the ToC
+% Graphics
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\usepackage{booktabs} % For horizontal bars to make 'science-y' looking tables
+\usepackage{float} % Allows placement of figures exactly where inserted
+\usepackage{array} % Required for centering columns in tables with defined width
+\usepackage{longtable} % For creating tables that span multiple pages
+\usepackage[labelfont=bf,labelsep=space,justification=justified]{caption} % For bold 'Figure XX' in figure captions with whitespace for separation
+\usepackage{enumitem} % For resuming enumerated lists
+\usepackage[plain]{fancyref} % For advanced cross-referencing features
+
+%-------------------------------------------------------------------------------
+% Initialize
+%-------------------------------------------------------------------------------
+
+\addbibresource{references.bib}
+\newcommand{\degree}{$^\circ$} % Degree symbol
+\renewcommand{\u}{$\mu$} % Mu symbol
+\renewcommand{\tilde}{$\sim$} % Tilde symbol
+%\setcounter{tocdepth}{2} % Display only X sections in table of contents
+\DeclareLanguageMapping{english}{american-apa} % Required for proper citation using APA
+\graphicspath{figures/} % Specifying the path to the folder containing images
+% \floatstyle{boxed} % For allowing thin borders around images
+% \restylefloat{figure} % For placing thin borders around figures
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % For centering columns in tables (use P instead of p)
+\floatstyle{plaintop} % For placing captions above tables
+\restylefloat{table} % Place captions above tables
+% Change numerical references to superscript
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  {\bibopenbracket
+   \usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}%
+   \bibclosebracket}
+
+%-------------------------------------------------------------------------------
+% Document
+%-------------------------------------------------------------------------------
+
+\title{
+        {Master of Science Thesis}\\
+        {\large The University of Western Ontario}\\[1cm]
+        {\includegraphics{figures/uwo_coatofarms.pdf}}
+    }
+
+\author{Liam Brown}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Introduction}
+    \include{sections/introduction}
+
+\chapter{Methods}
+    \include{sections/methods}
+
+\chapter{Progress}
+    \include{sections/progress}
+
+\chapter{Discussion}
+    \include{sections/discussion}
+
+\printbibliography
+
+\end{document}
