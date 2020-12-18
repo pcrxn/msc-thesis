@@ -364,3 +364,130 @@
 * May be the main argument in your proposal and *only* justification for getting approval
 * Has continuity with all other sections of the research proposal
 * Presents the literature in a manner the *perpares the reader for your project*
+
+## Writing clearly and concisely
+
+* Argot: The language used by a particular type or group of people: An often more or less secret vocabulary and idiom peculiar to a particular group.
+  - Academics write for other academics...
+
+* Academic writing should be formal (tone), precise (word choice), and concise (sentence length)
+
+## Writing your literature review
+
+* In a literature review, the author performs an action on the literature, but the intention is **not** to list, describe, or summarize
+* Situating your research within the literature is sometimes the only justification for:
+  - Getting approval to conduct research
+  - Getting a scholarship
+  - Getting published
+  - Getting a defence
+* The literature review has continuity with all other sections of the research proposal
+  - Says your specific research:
+    - Is worthy of further exploration
+    - Raises interesting questions
+    - Is relevant for future studies
+    - Has practical application
+    - Will have an imoact
+    - Will promote knowledge mobilization
+    - Is within a subject that's really cool to think about
+* The literature review *prepares the reader for your project*
+* Should be structured in a manner that *anticipates* the hypotheses or thesis you'll be testing or defending
+* *Proves that your research question hasn't already been answered*
+
+### Deciding whose work to cite and why
+
+* Citations shape scholarly conversations
+  - You are showing that you belong in *these* conversations
+* There are important decisions to make about which pubs to cite and why
+* What are the connections between your work and the work of others?
+  - Contrasts? Compares? Refutes? Qualifies?
+- In manuscripts:
+  - Reviewers can tell by who is or isn't cited how engaged a scholar and researcher the author is
+  - Reviewers can tell your academic genealogy (department, institutions, theoretical approach, methodological preference)
+  - As the author:
+    - You can attract the attention of authors cited
+    - You can attract an audience of researchers who follow those cited authors' research
+* Novice authors tend to cite far too copiously; they seem to do this out of insecurity about the validity of their own ideas
+  - Citing sources must be done judiciously
+* Use a "mind-mapping" exercise to determine which studies/authors are actually relevant to justify your project:
+  - In the middle, your project
+  - Studies pointing towards your project
+  - Then, rank-order the citations by importance/relevancy
+  - Write sentences that conceptually depict an actual conversation between these sources!
+
+## Writing your thesis or dissertation
+
+* Where are you when you write? What time of day is it when you write?
+* Learn to write anywhere, and at any time!
+  - Low-stakes writing
+
+### Goal-setting
+
+* Define your goal numerically
+  - The number of pages/words/sentences you'll write
+  - Gauge your progress
+* State your goal in positive terms (what you want to happen)
+* Work backwards
+  - What do you need to have completed by X date?
+    - What will it take for you to get to that point?
+* Why set goals?
+  - The relationship between gratitude, pride, and productivity
+
+### Feedback
+
+* Feedback is crucial to meeting disciplinary expectations and developing a scholarly identity for the writer
+
+### Purpose
+
+* "Dear supervisor: What do you need me to write so that you will approve my thesis or dissertation?"
+* What is my purpose?
+  - To get a degree
+  - To publish
+  - To spend time researching something I love
+  - To take advantage of "chance of a lifetime" research
+* Writing a thesis or dissertation is a lousy way to find out you're interested in something else
+
+### Where do you go to get answers?
+
+* Defended dissertations
+* Your supervisor or committee member's publications
+* Literature in your field
+
+## Getting published
+
+* Manuscript:
+  - A paper that has been formatted for publication
+  - A paper at any point in the review process
+* Article:
+  - A published paper
+  - When a paper is unconditionally accepted
+  - Either *in press* (to be published) or *in print*
+* "Dear supervisor: What do I *need* to write so that you will approve my manuscript for publication?"
+* If you aren't writing while you're conducting research, you aren't writing to be published!
+* Special attention is paid by the editors to the readability of submitted material
+
+### Manuscripts: Four writing mistakes
+
+1. Bad first impression.
+  - Ambiguity
+  - Inconsistencies in font size, word usage
+2. Writing noise.
+  - Unclear writing
+3. Problems with structure.
+4. Poorly integrated sources.
+
+### Journals' author information pages
+
+* Editorial policy
+  - e.g. "Getting published in Nature: The editorial process"
+* Manuscript guidelines
+
+### Best practices for getting published
+
+* Editors invite reviewers, potentially authors that *you have cited*
+* Open peer review is when the identity of both the author and review is known
+* A single-blind peer review keeps the identity of the reviewer anonymous
+* A double-blind peer review is when the identity of both the author and review is kept hidden
+  - How do you keep yourself anonymous when citing your own work?
+    - Refer to your own publication as (Author, 2020)
+      - Reviewer is not supposed to look up this pub
+* Consider the submission of a manuscript as an *exchange of ideas*
