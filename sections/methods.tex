@@ -1,1 +1,28 @@
-Lorem ipsum.
+\subsection{C1I gene cassette sequencing}
+
+\subsubsection{DNA isolation from soil microplots}
+
+Total genomic DNA was isolated from 2019 Day 30 post-application soil microplots using the DNeasy PowerSoil Kit (Qiagen) with an input of 250 mg of dry soil.
+The DNA was eluted in 100 uL of 10 mM Tris-HCl, and Nanodrop readings were taken to assess quality.
+The isolated DNA was stored at -20°C until it was used as template for gene cassette PCR.
+
+\subsubsection{Gene cassette PCR}
+
+Class 1 integron gene cassettes were amplified using primers and thermocycling conditions described by \textcite{stokesGeneCassettePCR2001}, except with 33 and 34 bp oligonucleotides ligated onto the 5’ ends \dummyfig.
+The purpose of these oligonucleotides was to provide more distance between the 5’ end of the PCR product (lost during library preparation) and the desired gene cassette sequence.
+DNA from each soil microplot was used as template for five technical replicates of 25 uL reactions (125 uL total).
+PCR product was analyzed by gel electrophoresis and visualized under UV light.
+Technical replicates were pooled together and PCR product was purified using the GenepHlow PCR Cleanup Kit (Geneaid).
+Cleaned PCR product was quantified using the Qubit dsDNA HS Assay Kit (Fisher Scientific).
+PCR and cleanup were repeated as described above using the same template DNA for a total of two technical replicates for each soil microplot.
+
+\subsubsection{Library preparation}
+
+The Nextera XT DNA Library Preparation Kit (Illumina) was used to prepare the library for sequencing by following the manufacturer’s protocol.
+The indexed PCR product was quantified using the Qubit dsDNA HS Assay Kit and sized using the High Sensitivity DNA Kit on a Bioanalyzer 2100 (Agilent).
+Individual libraries were diluted to 10 nM, and 15 uL of each diluted library was pooled into a single library for 2 x 125 bp sequencing at Sick Kid’s Hospital (Toronto, ON) on a HiSeq 2500 (Illumina).
+
+\subsubsection{Bioinformatics analysis}
+
+The quality of the demultiplexed HiSeq reads, and the quality of the reads following sequencing adapter trimming with Cutadapt (v2.10) was assessed using FastQC (v0.11.9) and MultiQC (v1.8) \parencite{martinCutadaptRemovesAdapter2011, andrewsFastQCQualityControl2010, ewelsMultiQCSummarizeAnalysis2016}.
+The adapter-trimmed reads were assembled into contigs using MEGAHIT (v1.2.9), assembly statistics were generated using QUAST (v4.0) \parencite{liMEGAHITUltrafastSinglenode2015, gurevichQUASTQualityAssessment2013}, and ARGs were identified using CARD-RGI (v5.1.0) \parencite{alcockCARD2020Antibiotic2019}.
