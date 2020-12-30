@@ -25,4 +25,4 @@ For commonly used commands, new commands were created or existing commands were 
 To insert a reminder that a reference is required at a specific point in the text, I created new *dummy reference* commands.
 To insert a dummy literature reference: `\dummyref`.
 To insert a dummy figure reference: `\dummyfig`.
-To insert a dummy table reference: `\dummytable`.
+To insert a dummy table reference: `\dummytab`.
