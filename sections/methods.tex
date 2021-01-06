@@ -26,9 +26,10 @@ Individual libraries were diluted to 10 nM, and 15 uL of each diluted library wa
 
 Adapters were trimmed using CUTADAPT (v2.10) and the sequence quality was assessed using FastQC (v0.11.9) and MultiQC (v1.8) \parencite{martinCutadaptRemovesAdapter2011, andrewsFastQCQualityControl2010, ewelsMultiQCSummarizeAnalysis2016}.
 The adapter-trimmed reads were assembled into contigs using MEGAHIT (v1.2.9) with default options \parencite{liMEGAHITUltrafastSinglenode2015}.
-Contigs that didn't contain the terminal 9 bp of each primer sequence were removed using BBDuk (options: \texttt{copyundefined=t rcomp=f mm=f k=9}) and the open reading frames (\textbf{ORFs}) of the remaining contigs were called using Prokka \parencite{bushnellBBMap2020, seemannProkkaRapidProkaryotic2014}.
+Contigs that didn't contain the terminal 9 bp of each primer sequence were removed using BBDuk (options: \texttt{copyundefined=t rcomp=f mm=f k=9}).
+After filtering out contigs that didn't contain the terminal primer sequences, the metagenomic assemblies of each sample were merged into a single assembly, and the open reading frames (\textbf{ORFs}) of the remaining contigs were called using Prokka \parencite{bushnellBBMap2020, seemannProkkaRapidProkaryotic2014}.
 The ORFs were concatenated into a non-redundant protein database at 97\% identity using CD-HIT (v\textcolor{red}{X.X}) and then reverse translated back to nucleotides \parencite{fuCDHITAcceleratedClustering2012}.
-To obtain fold-coverages, the adapter-trimmed reads were mapped back onto the concatenated nucleotide database of ORFs using BBMap (v\textcolor{red}{X.X}) \parencite{bushnellBBMap2020}.
+To obtain fold-coverages, the adapter-trimmed reads of each sample were mapped back onto the concatenated nucleotide database of ORFs using BBMap (v\textcolor{red}{X.X}) \parencite{bushnellBBMap2020}.
 ORFs were annotated using CARD-RGI (v\textcolor{red}{X.X}, options: \texttt{--low\_quality --clean -t protein}) for ARGs and eggNOG-mapper (v2.0) for functional categories \parencite{alcockCARD2020Antibiotic2019, huerta-cepasFastGenomewideFunctional2017, huerta-cepasEggNOGHierarchicalFunctionally2019}.
 
 \subsubsection{Compositional data analysis}
