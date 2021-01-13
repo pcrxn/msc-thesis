@@ -1,4 +1,4 @@
-\subsection{C1I gene cassette sequencing}
+\subsection{Class 1 integron gene cassettes}
 
 \subsubsection{DNA isolation from soil microplots}
 
@@ -26,10 +26,16 @@ Individual libraries were diluted to 10 nM, and 15 uL of each diluted library wa
 
 Adapters were trimmed using CUTADAPT (v2.10) and the sequence quality was assessed using FastQC (v0.11.9) and MultiQC (v1.8) \parencite{martinCutadaptRemovesAdapter2011, andrewsFastQCQualityControl2010, ewelsMultiQCSummarizeAnalysis2016}.
 The adapter-trimmed reads were assembled into contigs using MEGAHIT (v1.2.9) with default options \parencite{liMEGAHITUltrafastSinglenode2015}.
-Contigs that didn't contain the terminal 9 bp of each primer sequence were removed using BBDuk (options: \texttt{copyundefined=t rcomp=f mm=f k=9}).
+Contigs that didn't contain the terminal 9 bp of each primer sequence were removed using BBDuk with options \texttt{copyundefined=t rcomp=f mm=f k=9}.
 After filtering out contigs that didn't contain the terminal primer sequences, the metagenomic assemblies of each sample were merged into a single assembly, and the open reading frames (\textbf{ORFs}) of the remaining contigs were called using Prokka \parencite{bushnellBBMap2020, seemannProkkaRapidProkaryotic2014}.
-The ORFs were concatenated into a non-redundant protein database at 97\% identity using CD-HIT (v\textcolor{red}{X.X}) and then reverse translated back to nucleotides \parencite{fuCDHITAcceleratedClustering2012}.
+The ORFs were concatenated into a non-redundant protein database at 97\% identity using CD-HIT (v\textcolor{red}{X.X}) and then reverse translated back to nucleotides \parencite{liCDHITFastProgram2006, fuCDHITAcceleratedClustering2012}.
 To obtain fold-coverages, the adapter-trimmed reads of each sample were mapped back onto the concatenated nucleotide database of ORFs using BBMap (v\textcolor{red}{X.X}) \parencite{bushnellBBMap2020}.
-ORFs were annotated using CARD-RGI (v\textcolor{red}{X.X}, options: \texttt{--low\_quality --clean -t protein}) for ARGs and eggNOG-mapper (v2.0) for functional categories \parencite{alcockCARD2020Antibiotic2019, huerta-cepasFastGenomewideFunctional2017, huerta-cepasEggNOGHierarchicalFunctionally2019}.
+ORFs were then annotated using CARD-RGI with options \texttt{--low\_quality --include\_loose --clean -t protein} (v\textcolor{red}{X.X}) for ARGs and eggNOG-mapper (v2.0) for functional categories \parencite{alcockCARD2020Antibiotic2019, huerta-cepasFastGenomewideFunctional2017, huerta-cepasEggNOGHierarchicalFunctionally2019}.
+CARD annotations with a percentage identity less than the mean percentage identity of all ARG hits, along with hits of less than 20\% coverage to the subject ARG sequence were discarded.
 
-\subsubsection{Compositional data analysis}
+\subsubsection{Compositional data analysis and statistics}
+
+The fold-coverages of technical replicates were combined.
+A non-zero count of 0.1 was added to the resulting feature table prior to centred log-ratio (\textbf{CLR}) transformation, although we acknowledge that a non-zero count could lead to \textcolor{red}{x, y, and z errors}.
+The CLR transformation was performed using the base 2 logarithm, thereby producing relative abundances where the difference between two values is the fold-change between them.
+The Kruskal-Wallis test was used to determine if there were differences between the median relative abundances of class 1 integron gene cassettes ORFs between treatment groups (\textit{P} \textless 0.05), followed by Dunn's post-hoc test for multiple comparisons (\textit{P} \textless 0.05) with Bonferroni correction.
