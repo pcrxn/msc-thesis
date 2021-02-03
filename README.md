@@ -1,8 +1,6 @@
 # My MSc thesis
 
-References are in BibLaTex format.
-LaTeX distribution used was TinyTex (installed via R).
-Text was written and compiled within Atom text editor using the package `latex`, and with `language-latex` for syntax highlighting.
+References are in BibLaTeX format.
 
 For citations, the following packages are required (in addition to the core TinyTex build):
   * `biber`
@@ -10,7 +8,19 @@ For citations, the following packages are required (in addition to the core Tiny
 
 ## Compiling the LaTeX document
 
-To tell the Atom text editor to use your TinyTex installation for compilation using the `latex` package, in Settings go to `Packages/LaTeX` and provide the full path to the TinyTex distribution under **TeX Path** (e.g. `C:\Users\Liam\AppData\Roaming\TinyTeX`).
+### Compilation with `tinytex` (Windows or Linux)
+
+1. After installing R, install [`tinytex`](https://yihui.name/tinytex/).
+2. Run `tinytex::install_tinytex()` to install the TinyTeX LaTeX distribution.
+3. Install the packages `latex` and `language-latex` within the Atom text editor.
+4. To tell the Atom text editor to use your TinyTex installation for compilation using the `latex` package, in Settings go to `Packages/LaTeX` and provide the full path to the TinyTex distribution under **TeX Path** (e.g. `C:\Users\Liam\AppData\Roaming\TinyTeX`).
+
+### Compilation with MiKTeX (Windows)
+
+1. Install the packages `latex` and `language-latex` within the Atom text editor.
+2. Download and [Strawberry Perl for Windows](https://strawberryperl.com/) then restart your PC.
+3. Download and install [MiKTeX for Windows](https://miktex.org/download).
+4. To tell the Atom text editor to use your MiKTeX installation for compilation using the `latex` package, in Settings go to `Packages/LaTeX` and provide the full path to your MiKTeX distribution. This path can be found by starting the MiKTeX Console application, going to Settings -> Directories and looking under "Link target directory."
 
 ## Exporting my Zotero library for creating the .bib file
 
