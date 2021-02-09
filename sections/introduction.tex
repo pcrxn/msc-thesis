@@ -1,15 +1,57 @@
-Antimicrobial resistance (AMR) is the natural phenomenon by which microorganisms acquire defences against harmful chemicals within their environment.
+\subsection{Describe a situation}
+
+Antimicrobial resistance (\textbf{AMR}) is the natural phenomenon by which microorganisms acquire defences against harmful chemicals within their environment.
 All microorganisms have the potential to acquire AMR under various environments, including terrestrial and aquatic ecosystems, agri-food, hospitals, and the human body.
 In the context of an infection, resistant microorganisms limit available treatment options.
-Acquired antimicrobial resistance (AMR) is estimated to have caused 5,400 Canadian fatalities in 2015 — a number which is expected to climb to 13,700 deaths per year by 2050, while disproportionally affecting populations that are at a greater risk of acquiring infections \parencite{councilofcanadianacademiesWhenAntibioticsFail2019}.
+Acquired antimicrobial resistance is estimated to have caused 5,400 Canadian fatalities in 2015 — a number which is expected to climb to 13,700 deaths per year by 2050, while disproportionally affecting populations that are at a greater risk of acquiring infections \parencite{councilofcanadianacademiesWhenAntibioticsFail2019}.
 
-AMR is acquired in response to any chemical that imposes a selective pressure on the microorganism.
-AMR is a huge burden to global healthcare systems, economies, and societies.
+AMR is ancient and is prolific in the environment.
+AMR likely arose from competition between bacteria for natural resources.
 As \textcite{buongerminopereiraComprehensiveSurveyIntegronassociated2020} has said...
 
+Antimicrobial discovery and synthesis revolutionized the treatment of bacterial and fungal infections, but the overruse and misuse of \textcolor{red}{antimicrobials} in healthcare and agriculture has led to widespread AMR.
+
+\subsection{Describe a problem or question that arises from that situation}
+
+One pertinent problem is the introduction of antimicrobials into the environment, and the selective pressure that these antimicrobials impose on environmental microorganisms.
+The introduction of antibiotics, heavy metals, and biocides into the environment promotes AMR.
+These resistant microorganisms find their way into people and into the clinic.
+
+Agriculture represents a pathway for antibiotics to enter the environment.
+Antibiotics are used to treat infections in farm animals, sometimes used as prophylactics, and were historically used as growth promoting substances (still used in some countries today).
+
+Biosolids are used as agricultural fertilizer and are known to contain trace amounts of antibiotics.
 Biosolids are produced from the separation of wastewater into water and solids, followed by the treatment of the solids portion to reduce pathogens and odour.
 These biosolids may be treated using a combination of chemical, biological, or physical processes.
 The purpose of applying biosolids to agricultural soil is to improve the soil quality and fertility:
 Soil that is more fertile requires less inorganic fertilizer, which reduces the risk of runoff into adjacent water sources, and soil that has more organic matter has increased moisture retention and \textit{better structure}.
 In Canada, biosolids are suitable for the growth of crops which require... such as cereals, hay, field corn, and soybeans (\url{http://www.omafra.gov.on.ca/english/nm/nasm/info/brochure.htm#7}).
 Currently, most wastewater treatment plants do not have technologies to remove micropollutants (such as antibiotics) from influent.
+
+We previously determined that biosolids contain sub-mg/kg concentrations of macrolide antibiotics.
+Macrolide antbiotics are used in both healthcare and agri-food to treat infections, and have been deemed critically important by the WHO for their use as first-line and sole treatments of serious human bacterial infections.
+Macrolide antibiotic resistance is rising.
+There is a need to safeguard this antibiotic supply.
+
+\subsection{Describe how others have approached that problem or question}
+
+To investigate whether or not biosolids pose a risk for promoting AMR in the environment via the introduction of macrolide antibiotics into the environment, we performed an experiment investigating the consequences of long-term exposure of antibiotics on antimicrobial resistance gene (\textbf{ARG}) and mobile genetic element (\textbf{MGE}) abundance.
+The results of this experiment indicated that some ARGs and MGEs were increased in response to macrolide antibiotic exposure, but only at the unrealistically high concentration (10 mg/kg).
+Due to the technique used, it was unclear how the ARGs were increasing in the 10 mg/kg treated soil microplots.
+It was also unclear whether or not ARGs and MGEs that weren't pre-selected for quantitative PCR were actually elevated in the 0.1 mg/kg treatment (realistic exposure scenario) but remained undetected using this targeted technique.
+
+\subsection{Explain a need to approach it in a different way or expand upon what's been done}
+
+In order to investigate AMR in the environment without restricting one's self to using techniques that can only detect X ARGs and MGEs, we can use total metagenoic sequencing and targeted amplicon sequencing of informative DNA elements.
+
+There is also a growing need to analyze this data using compositionally appropriate techniques (CoDA).
+Sequencing data is constrained by an unknown sum, and thus resides within a simplex.
+Non-Euclidean data cannot be analyzed using traditional statistical tests unless a transformation has been performed.
+Typically this transformation aims to...
+As the field rapidly evolves, a transformation to put the data back into Euclidean space is becoming the gold-standard for analyzing this data.
+
+\subsection{Say what you aim to do...}
+
+In order to determine if AMR was increased in the soil microplots that were exposed to 0.1 mg/kg antibiotics, and to investigate if other ARGs and MGEs were increased in 10 mg/kg-exposed microplots, we aimed to perform a comprehensive metagenomic investigation of the soil microplots, focusing on bacterial community composition and the abundance and diversity of ARGs and MGEs within the soil.
+This approach involved targeted amplicon sequencing of the 16S bacterial rDNA to investigate bacterial community composition, targeted amplicon sequencing of class 1 integrons to investigate MGE abundance and diversity, and total metagenomic sequencing to investigate both ARG and MGE abundance and diversity.
+We also aimed to analyze the data using recently 'remembered' CoDA techniques.
