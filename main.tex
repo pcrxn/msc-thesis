@@ -1,23 +1,33 @@
 %-------------------------------------------------------------------------------
+% User guide
+%-------------------------------------------------------------------------------
+
+% Custom environments and page setups to meet thesis requirements  for Western
+% are in westerntemplate.tex and must be loaded in immediately after packages.
+
+% Custom commands:
+% \degree for degree symbol
+% \u for mu symbol
+% \tilde for tilde symbol
+% \dummyref = Create a dummy reference link
+% \dummyfig = Create a dummy figure link
+% \dummytab = Create a dummy table link
+
+%-------------------------------------------------------------------------------
 % Packages
 %-------------------------------------------------------------------------------
 
 % Doc and page setup
-\documentclass[12pt, oneside]{report}
-% \documentclass[12pt, twoside]{report} % Uncomment for book binding margins
-\usepackage[utf8]{inputenc}
-\usepackage{blindtext}
-\usepackage[a4paper, width=6.25in, top=1in, bottom=1in]{geometry}
-\usepackage{titlesec} % For placing sections on new pages
+% \documentclass[12pt, oneside]{report}
+\documentclass[12pt, twoside]{report} % Uncomment for book binding margins
 
 % Reference management
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
             citecolor = blue,
-            anchorcolor = blue]{hyperref} % For cross-referenced hyperlinks, with colouring
+            anchorcolor = blue]{hyperref} % For cross-referenced hyperlinks, with colouring; comment out for hardcopy
 \usepackage[style=authoryear, backend=biber, hyperref=true, natbib=true]{biblatex}
-%\usepackage[nottoc]{tocbibind} % Comment out to include bibliography in the ToC
 
 % Font
 %\usepackage{mathptmx} % For pseudo-Times New Roman typeface when using serif
@@ -26,8 +36,6 @@
 
 % Graphics
 \usepackage{graphicx}
-\usepackage{fancyhdr}
-\setlength{\headheight}{15pt}
 \usepackage{booktabs} % For horizontal bars to make 'science-y' looking tables
 \usepackage{float} % Allows placement of figures exactly where inserted
 \usepackage{array} % Required for centering columns in tables with defined width
@@ -36,6 +44,12 @@
 \usepackage[plain]{fancyref} % For advanced cross-referencing features
 \usepackage{xcolor}
 \usepackage{caption}
+
+% Western thesis template packages
+\usepackage{tocloft} % For custom formatting of ToC and List of 'X'
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{amsmath} % Can get rid of this if I'm not using any equations
 
 % Line spacing
 \usepackage{setspace}
@@ -49,21 +63,10 @@
 \renewcommand{\u}{$\mu$} % Mu symbol
 \renewcommand{\tilde}{$\sim$} % Tilde symbol
 
-% Fancy headers and footers
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L,C]{}
-\fancyhead[R]{\textsl{\leftmark}}
-\fancyfoot[R]{\thepage}
-
 % Create commands for dummy references
 \newcommand{\dummyref}{(\textbf{\textcolor{red}{ref}})}
 \newcommand{\dummyfig}{(Figure \textbf{\textcolor{red}{XX}})}
 \newcommand{\dummytab}{(Table \textbf{\textcolor{red}{XX}})}
-
-% TOC
-\setcounter{tocdepth}{3} % Display only X sections in table of contents
-\setcounter{secnumdepth}{3} % Number up to subsubsections
 
 % Figure and table captions
 \floatstyle{plaintop} % For placing captions above tables
@@ -75,67 +78,85 @@
 
 % Other
 \DeclareLanguageMapping{english}{american-apa} % Required for proper citation using APA
-\graphicspath{figures/} % Specifying the path to the folder containing images
-% \floatstyle{boxed} % For allowing thin borders around images
-% \restylefloat{figure} % For placing thin borders around figures
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % For centering columns in tables (use P instead of p)
-\newcommand{\sectionbreak}{\clearpage} % Each section starts on a new page
 \addbibresource{references.bib}
 
-% Change numerical references to superscript
-% \DeclareCiteCommand{\cite}[\mkbibsuperscript]
-%   {\bibopenbracket
-%    \usebibmacro{cite:init}%
-%    \let\multicitedelim=\supercitedelim
-%    \iffieldundef{prenote}
-%      {}
-%      {\BibliographyWarning{Ignoring prenote argument}}%
-%    \iffieldundef{postnote}
-%      {}
-%      {\BibliographyWarning{Ignoring postnote argument}}}
-%   {\usebibmacro{citeindex}%
-%    \usebibmacro{cite:comp}}
-%   {}
-%   {\usebibmacro{cite:dump}%
-%    \bibclosebracket}
-
 %-------------------------------------------------------------------------------
-% Document
+% Preliminary document
 %-------------------------------------------------------------------------------
 
-\title{
-        {Master of Science Thesis}\\
-        {\large The University of Western Ontario}\\[1cm]
-        {\includegraphics{figures/uwo_coatofarms.pdf}}
-    }
+% Western thesis template requirements
+\input{westerntemplate.tex}
 
-\author{Liam Brown}
+% Set the page style and numbering for preliminary sections
+\begin{preliminary}
 
-\date{\today}
-
-\begin{document}
-
+% Generate title page from the information in westerntemplate.tex
 \maketitle
+\addcontentsline{toc}{chapter}{Certificate of Examination}
+\makecert
+\newpage
+%\addcontentsline{toc}{chapter}{Co-Authorship Statement}
+%\coauthor{\makecoauthor}  %comment this out if none
+%\newpage
+%\addcontentsline{toc}{chapter}{Acknowlegements}
+%\acknowlege{\makeacknowlege}	%as above
 
-\thispagestyle{empty} % No header or footer on title page
+% Abstract
+\input{abstract/abstract.tex}
 
-\tableofcontents
+% ToC
+\newpage
+\tableofcontents\newpage
 
-\chapter{Introduction}
-    \include{sections/introduction}
+% List of Figures
+\newpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures\newpage
 
-\chapter{Methods}
-    \include{sections/methods}
+% List of Tables
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables\newpage
 
-\chapter{Results}
-    \include{sections/results}
+% List of Appendices
+\addcontentsline{toc}{chapter}{List of Appendices}
+\listofmyappendices\newpage
 
-\chapter{Discussion}
-    \include{sections/discussion}
+% List of Abbreviations
+%\addcontentsline{toc}{chapter}{List of Abbreviations, Symbols, and Nomenclature}
+%\large List of Abbreviations, Symbols, and Nomenclature \normalsize
+%\newpage
 
-\chapter{Conclusion}
-    \include{sections/conclusion}
+%% End of the preliminary sections: reset page style and numbering.
+\end{preliminary}
+
+%-------------------------------------------------------------------------------
+% Main document
+%-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                    %%
+%%                    ***   I M P O R T A N T   ***                   %%
+%%                                                                    %%
+%% Put your Chapters here; the easiest way to do this is to keep each %%
+%% chapter in a separate file and \include all the files right here.  %%
+%% Note that each chapter file should start with the line             %%
+%% "\chapter{ChapterName}".  Note that using "\include" instead of    %%
+%% "\input" makes each chapter start on a new page.                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{chapters/chapter1}
+
+% Add a line for bibliography in ToC
+\addcontentsline{toc}{chapter}{Bibliography}
 
 \printbibliography
+
+%Appendices.
+\begin{appendices}
+\include{appendices/appendixa}
+\end{appendices}
+
+\include{curriculum-vitae/cv.tex}
 
 \end{document}
