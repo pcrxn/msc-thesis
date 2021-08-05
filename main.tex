@@ -12,6 +12,22 @@
 % \dummyref = Create a dummy reference link
 % \dummyfig = Create a dummy figure link
 % \dummytab = Create a dummy table link
+% \dummysupfig = Create a dummy supplementary figure link
+% \dummysuptab = Create a dummy supplementary table link
+
+% Figures can be referenced in-text by:
+% (Figure \ref{fig:macrolide-chemical-structures})
+
+% To-do notes:
+% To create a to-do note: \todo{This is a note.}
+% To create a missing figure: \missingfigure{This text will appear inside the
+% missing figure.}
+
+% Supplementary figures and tables:
+% Can use \begin{suppfigure} in place of \begin{figure}, and \begin{supptable}
+% in place of \begin{table}
+% Can print lists of supplementary figures and tables using \listofsuppfigures,
+% \listofsupptables
 
 %-------------------------------------------------------------------------------
 % Packages
@@ -38,12 +54,17 @@
 \usepackage{graphicx}
 \usepackage{booktabs} % For horizontal bars to make 'science-y' looking tables
 \usepackage{float} % Allows placement of figures exactly where inserted
+\usepackage{newfloat} % Required for setting up supplementary figures and tables
 \usepackage{array} % Required for centering columns in tables with defined width
 \usepackage{longtable} % For creating tables that span multiple pages
 \usepackage{enumitem} % For resuming enumerated lists
 \usepackage[plain]{fancyref} % For advanced cross-referencing features
 \usepackage{xcolor}
 \usepackage{caption}
+\usepackage{chngcntr} % Figure numbering
+\usepackage{glossaries} % For abbreviations
+\usepackage{textcomp} % For trademark symbols
+\usepackage{todonotes} % For inserting to-do notes; can be used for commenting
 
 % Western thesis template packages
 \usepackage{tocloft} % For custom formatting of ToC and List of 'X'
@@ -67,6 +88,8 @@
 \newcommand{\dummyref}{(\textbf{\textcolor{red}{ref}})}
 \newcommand{\dummyfig}{(Figure \textbf{\textcolor{red}{XX}})}
 \newcommand{\dummytab}{(Table \textbf{\textcolor{red}{XX}})}
+\newcommand{\dummysupfig}{(Supplementary Figure \textbf{\textcolor{red}{XX}})}
+\newcommand{\dummysuptab}{(Supplementary Table \textbf{\textcolor{red}{XX}})}
 
 % Figure and table captions
 \floatstyle{plaintop} % For placing captions above tables
@@ -75,11 +98,34 @@
 \captionsetup{labelfont = {bf, color = pastelred},
               justification = justified,
               labelsep = quad}
+\counterwithout{figure}{chapter} % For continuous figure numbering
+\counterwithout{table}{chapter} % For continuous table numbering
 
 % Other
 \DeclareLanguageMapping{english}{american-apa} % Required for proper citation using APA
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % For centering columns in tables (use P instead of p)
 \addbibresource{references.bib}
+\makeglossaries
+\setuptodonotes{inline, color=blue!20}
+\DeclareFloatingEnvironment[name={Supplementary Figure},fileext=lsf,listname={List of Supplementary Figures}]{suppfigure} % Set up supplementary figures
+\DeclareFloatingEnvironment[name={Supplementary Table},fileext=lsf,listname={List of Supplementary Tables}]{supptable} % Set up supplementary figures
+
+% Avoid hyphenating words that run onto new lines when using text justification
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+%-------------------------------------------------------------------------------
+% Abbreviations
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{ANOVA}{name={ANOVA}, description={Analysis of variance}}
+\newglossaryentry{CARD}{name={CARD}, description={Comprehensive Antibiotic Resistance Database}}
+\newglossaryentry{CLR}{name={CLR}, description={Center log ratio}}
+\newglossaryentry{COG}{name={COG}, description={Cluster of Orthologous Groups}}
+\newglossaryentry{Meta-MARC}{name={Meta-MARC}, description={Metagenomic Markov models for Antimicrobial Resistance Characterization}}
+\newglossaryentry{PERMANOVA}{name={PERMANOVA}, description={Permutational multivarate analysis of variance}}
 
 %-------------------------------------------------------------------------------
 % Preliminary document
@@ -99,8 +145,8 @@
 %\addcontentsline{toc}{chapter}{Co-Authorship Statement}
 %\coauthor{\makecoauthor}  %comment this out if none
 %\newpage
-%\addcontentsline{toc}{chapter}{Acknowlegements}
-%\acknowlege{\makeacknowlege}	%as above
+\addcontentsline{toc}{chapter}{Acknowlegements}
+\acknowlege{\makeacknowlege}	%as above
 
 % Abstract
 \input{abstract/abstract.tex}
@@ -119,13 +165,13 @@
 \listoftables\newpage
 
 % List of Appendices
-\addcontentsline{toc}{chapter}{List of Appendices}
-\listofmyappendices\newpage
+% \addcontentsline{toc}{chapter}{List of Appendices}
+% \listofmyappendices\newpage
 
 % List of Abbreviations
-%\addcontentsline{toc}{chapter}{List of Abbreviations, Symbols, and Nomenclature}
-%\large List of Abbreviations, Symbols, and Nomenclature \normalsize
-%\newpage
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\printglossary[title = {List of Abbreviations}]
+\newpage
 
 %% End of the preliminary sections: reset page style and numbering.
 \end{preliminary}
@@ -146,13 +192,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
 
 % Add a line for bibliography in ToC
 \addcontentsline{toc}{chapter}{Bibliography}
 
+\todo{Need to go through all of the references and make sure formatting/names are correct.}
 \printbibliography
 
-%Appendices.
+% Appendices.
 \begin{appendices}
 \include{appendices/appendixa}
 \end{appendices}
