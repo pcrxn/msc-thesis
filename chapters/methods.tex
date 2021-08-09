@@ -22,13 +22,12 @@ DNA was stored at -20\degree C.
 Integron gene cassettes were PCR amplified using primers described by \cite{Stokes.2001} with 33 and 34 bp Illumina adapter overhang sequences ligated onto the 5’ ends (Supplementary Table \ref{supp-table:primers}):
 The purpose of these 5’ ends was to extend the distance between the tagmentation site and the desired gene cassette sequence, as ~ 50 bp from each distal end of the amplicon was expected to be lost during preparation of the sequencing library due to transposome activity.
 The gene cassette PCR primers anneal to highly conserved GTTRRRY motifs within the \textit{attC} recombination sites of gene cassettes \dummyfig.
+\todo{A small diagram of where the primers anneal to within an integron (don't use the class 1 integron structure; just use a generic integron).}
 Total genomic DNA isolated from the microplot soils were diluted 10-fold in Tris-EDTA buffer and used as template DNA for five technical replicates of 25 \u L PCR reactions (125 \u L total), and amplified under the following thermocycler conditions:
 94\degree C for 3 min; 35 cycles of 94\degree C for 30 s, 55\degree C for 1 min, 72\degree C for 2 min 30 s; 72\degree C for 5 min.
 Each PCR reaction was comprised of 2 \u L of diluted template DNA, 0.25 \u L of Q5\textsuperscript{\textregistered{}} High-Fidelity DNA Polymerase (New England BioLabs), 0.2 \u L of 25 mM dNTPs, 5 \u L of 5X Q5\textsuperscript{\textregistered{}} Reaction Buffer, and 1.13 \u L of each 10 \u M forward and reverse primer.
 Technical replicates were pooled together and PCR product was purified using the GenepHlow PCR Cleanup Kit (Geneaid), and eluted in 25 \u L of nuclease-free water.
 DNA concentration of the cleaned PCR product was determined using the Qubit\textsuperscript{\texttrademark{}} dsDNA HS Assay Kit (Invitrogen).
-
-\missingfigure{A small diagram of where the primers anneal to within an integron (don't use the class 1 integron structure; just use a generic integron).}
 
 The Nextera\textsuperscript{\textregistered{}} XT DNA Library Preparation Kit was used to prepare DNA libraries of the gene cassette amplicons for sequencing by following the manufacturer’s protocol.
 The DNA libraries were indexed using the Nextera\textsuperscript{\textregistered{}} XT Index Kit (Illumina) following the tagmentation step.
@@ -38,7 +37,7 @@ The pooled DNA library was sent to The Hospital for Sick Children in Toronto, On
 
 \subsection{16S rDNA amplicon sequencing}
 
-For 16S rDNA sequencing, the total genomic DNA was diluted 10-fold in Tris-EDTA buffer and used as template for PCR amplification of the V3 and V4 regions of the bacterial 16S rDNA gene \dummytab.
+For 16S rDNA sequencing, the total genomic DNA was diluted 10-fold in Tris-EDTA buffer and used as template for PCR amplification of the V3 and V4 regions of the bacterial 16S rDNA gene (Supplementary Table \ref{supp-table:primers}).
 The MiSeq Reagent Kit v3 (600 cycle; Illumina) was used to prepare the amplicon libraries, and the libraries were indexed using the Nextera\textsuperscript{\textregistered{}} XT Index Kit (Illumina) by following the manufacturer’s protocol.
 The amplicon library was sent to the Canadian Food Inspection Agency (CFIA) in Ottawa, Ontario for 2 x 300 bp sequencing on a MiSeq instrument (Illumina).
 
@@ -56,7 +55,7 @@ For all sequence datasets, the quality of the demultiplexed reads was assessed u
 To remove low-quality bases from the 16S rDNA amplicon reads, Trimmomatic (v0.36) was run in paired-end mode:
 The first 25 bases of each read were dropped; sliding window trimming was performed where a window of 4 bp would be trimmed if the average quality of the window had a quality score (Q-score) $<$ 15; remaining reads with a length $<$ 25 bp were discarded \parencite{Bolger.2014}.
 To denoise the trimmed 16S rDNA amplicon reads, remove chimeric sequences, merge reads, and then establish a set of unique amplicon sequence variants and obtain their counts, the DADA2 denoise-paired plugin  within QIIME 2 (v2019.10) was run with default options and without further truncation of the 5’ and 3’ ends \parencite{Callahan.2016, Bolyen.2019}.
-To assign taxonomy to the amplicon sequence variants, the QIIME 2 feature-classifier plugin was first trained with SILVA (v132) 16S rRNA reference sequences using Naïve Bayes classification and was then used to classify the sequence variants \parencite{Quast.2013}.
+To assign taxonomy to the amplicon sequence variants, the QIIME 2 feature-classifier plugin was first trained with SILVA (v132) 16S rRNA reference sequences using Naïve Bayes classification and was then used to classify the sequence variants \parencite{Quast.2013, Bokulich.2018}.
 
 \subsection{Metagenomic sequence analysis}
 
@@ -64,9 +63,9 @@ Cutadapt (v2.8) was used to remove adapter sequences from the 3’ ends of metag
 Trimmomatic was run in paired-end mode to remove low-quality leading and trailing bases from the adapter-trimmed reads (Q-score $<$ 20), and remaining reads with a length $<$ 100 bp were discarded.
 MetaPhlAn3 (v3.0.7) was used to assign taxonomy to metagenomic reads using the 'very-sensitive' algorithm of Bowtie2, ignoring eukaryotes and archaea, and profiling the metagenomes as relative abundances with estimation of the number of reads coming from each bacterial clade \parencite{Beghini.2020}.
 
-To identify metagenomic reads that corresponded to antibiotic resistance genes, the metagenomic reads were mapped to two \gls{CARD} databases:
-The \gls{CARD} ‘canonical’ database (v3.0.8) of phenotypically confirmed antibiotic resistance genes; and the \gls{CARD} Prevalence, Resistomes, \& Variants (v3.0.7) database of in silico predicted resistance genes, derived from genomic data of 82 human pathogens.
-The metagenomic reads were mapped to these databases using Bowtie2 implemented by the \gls{CARD} Resistance Gene Identifier in metagenomics mode (v5.1.0) \parencite{Alcock.2020}.
+To identify metagenomic reads that corresponded to antibiotic resistance genes, the metagenomic reads were mapped to two CARD databases:
+The CARD ‘canonical’ database (v3.0.8) of phenotypically confirmed antibiotic resistance genes; and the CARD Prevalence, Resistomes, \& Variants (v3.0.7) database of in silico predicted resistance genes, derived from genomic data of 82 human pathogens.
+The metagenomic reads were mapped to these databases using Bowtie2 implemented by the CARD Resistance Gene Identifier in metagenomics mode (v5.1.0) \parencite{Alcock.2020}.
 To identify metagenomics reads that corresponded to mobile genetic elements, the metagenomic reads were mapped to a database of known mobile genetic elements created by \cite{Parnanen.2018} (downloaded from \url{https://github.com/KatariinaParnanen/MobileGeneticElementDatabase} on 2021-05-24).
 The metagenomic reads were mapped to this database using Bowtie2 (v2.4.2) with end-to-end searching and using the pre-defined 'very-sensitive' search algorithm, except for allowing a maximum of one mismatch in the seed alignment \parencite{Langmead.2012}.
 Fold-coverages of antibiotic resistance genes and mobile genetic elements were used as abundances for downstream analysis.
@@ -81,18 +80,19 @@ Individual sample assemblies were combined into a master assembly for downstream
 The highly conserved motifs within integron gene cassette attC sites were used to identify the boundaries of gene cassettes from assembled contigs; if an assembled contig did not contain the terminal 9 bp of both of these motifs, it was identified using BBTools’ BBDuk (v38.90) and discarded from further analysis \parencite{Bushnell.2016}.
 Prokka (v1.14.6) was used to identify open reading frames --- putative genes that may encode a protein --- within the surviving gene cassette contigs, which were then clustered at 97\% identity using CD-HIT (v4.8.1) to obtain unique open reading frames \parencite{Seemann.2014, Fu.2012}.
 
-To identify integron gene cassette open reading frames that could correspond to antibiotic resistance genes, the open reading frames were aligned against \gls{CARD}’s ‘canonical’ protein homolog database using an implementation of BLAST within \gls{CARD}-RGI, including all ‘loose’ hits and running in low-quality mode.
-To further potentiate the discovery of novel ARGs, the translated protein sequences were also scanned using Meta-MARC and hmmer (v3.1b2) with Group I models only (downloaded from \url{https://github.com/lakinsm/meta-marc} on 2021-02-13) \parencite{Lakin.2019, Wheeler.2013}.
+To identify integron gene cassette open reading frames that could correspond to antibiotic resistance genes, the open reading frames were aligned against CARD’s ‘canonical’ protein homolog database using an implementation of BLAST within CARD-RGI, including all ‘loose’ hits and running in low-quality mode.
+To further potentiate the discovery of novel antibiotic resistance genes, the translated protein sequences were also scanned using Meta-MARC and hmmer (v3.1b2) with Group I models only (downloaded from \url{https://github.com/lakinsm/meta-marc} on 2021-02-13) \parencite{Lakin.2019, Wheeler.2013}.
 
-We considered the positive identification of integron gene cassette open reading frames as antibiotic resistance genes at three different levels of confidence (high, moderate, low) which were determined by visual inspection of alignment statistics distributions \dummyfig:
+We considered the positive identification of integron gene cassette open reading frames as antibiotic resistance genes at three different levels of confidence (high, moderate, low) which were determined by visual inspection of alignment statistics distributions \dummysupfig:
+\todo[noinline]{Violin and scatter plots of alignment statistics.}
 
 \begin{itemize}
-	\item{High confidence: \gls{CARD}-RGI ‘strict’ hits; Meta-MARC hits with E-value $\leq$ 1E-10.}
-	\item{Moderate confidence: All high confidence hits; \gls{CARD}-RGI ‘loose’ hits with percent identity $>$ 60 and percent length of reference sequence $>$ 60; Meta-MARC hits with E-value $\leq$ 1E-1.}
-	\item{Low confidence: All high and moderate confidence hits; \gls{CARD}-RGI ‘loose’ hits with percent identity $>$ 40 and percent length of reference sequence $>$ 40; Meta-MARC hits with E-value $\leq$ 1.}
+	\item{High confidence: CARD-RGI ‘strict’ hits; Meta-MARC hits with E-value $\leq$ 1E-10.}
+	\item{Moderate confidence: All high confidence hits; CARD-RGI ‘loose’ hits with percent identity $>$ 60 and percent length of reference sequence $>$ 60; Meta-MARC hits with E-value $\leq$ 1E-1.}
+	\item{Low confidence: All high and moderate confidence hits; CARD-RGI ‘loose’ hits with percent identity $>$ 40 and percent length of reference sequence $>$ 40; Meta-MARC hits with E-value $\leq$ 1.}
 \end{itemize}
 
-To predict general functions for integron gene cassette open reading frames, the open reading frames were scanned for similarity to orthologous groups in the eggNOG database (v5.0) and assigned a Cluster of Orthologous Groups (\gls{COG}) functional category using the web implementation of eggNOG-mapper (v2.0) \parencite{HuertaCepas.2019}.
+To predict general functions for integron gene cassette open reading frames, the open reading frames were scanned for similarity to orthologous groups in the eggNOG database (v5.0) and assigned a Cluster of Orthologous Groups (COG) functional category using the web implementation of eggNOG-mapper (v2.0) \parencite{HuertaCepas.2019}.
 
 To obtain fold-coverages for integron gene cassette open reading frames, BBTools’ BBMap (v38.90) was used to map gene cassette sequence reads back onto unique open reading frames \parencite{Bushnell.2016}.
 These fold-coverages were used as abundances for downstream analysis.
@@ -100,12 +100,21 @@ These fold-coverages were used as abundances for downstream analysis.
 \section{Statistical analyses and data visualization}
 
 All statistical tests were performed in Python (v3.9.2) unless otherwise stated \parencite{PythonSoftwareFoundation.}.
+Data visualizations were generated using plotly (v4.14.3) and matplotlib (v3.4.1) packages and were exported for editing in Adobe Illustrator 2020 \parencite{PlotlyTechnologiesInc..2015, Hunter.2007, AdobeInc..2020}.
 
-A one-way analysis of variance (\gls{ANOVA}) was used to test if differences in the numbers of merged 16S rDNA amplicon reads between treatment groups was statistically significant as implemented by the SciPy package \parencite{PauliVirtanen.2020}.
-Alpha diversity (Shannon index, Simpson’s index, Chao1 richness estimator) was computed using the sci-kit bio package (v0.5.6).
-For principal component analysis (PCA), a pseudocount of 0.5 was added to each feature table of abundances (taxa, genes, open reading frames) prior to center log ratio (\gls{CLR}) transformation to obtain samplewise Aitchison distances --- \gls{CLR}-transformed relative abundances.
-A PCA was performed on the resulting table of \gls{CLR}-transformed relative abundances to investigate differences in antibiotic resistance gene, mobile genetic element, integron gene cassette open reading frame, and bacterial community composition between treatment groups using the sci-kit learn package (v0.24.1).
-Permutational multivariate ANOVA (\gls{PERMANOVA}) was used to determine if differences in dispersion between treatment groups was statistically significant using the sci-kit bio package.
-Differential abundance analysis was performed to determine if differences in the abundances of bacterial taxa, antibiotic resistance genes, mobile genetic elements, or gene cassette \gls{COG} functional categories between groups was statistically significant using ANCOM-BC (v1.2.0) with Holm-Bonferroni correction as implemented in R (v4.1.0) \parencite{RCoreTeam.2021, Lin.2020}.
+\subsection{Alpha diversity}
 
-Data visualizations were generated using plotly (v4.14.3) and matplotlib (v3.4.1) packages and were exported for editing in Adobe Illustrator 2020 \parencite{PlotlyTechnologiesInc.2015, Hunter.2007, AdobeInc.2020} .
+Alpha diversity (within-group diversity using the Chao1 richness estimator) was computed using the sci-kit bio package (v0.5.6).
+A Shapiro-Wilk test was used to assess the normality of Chao1 richness, followed by a one-way analysis of variance (ANOVA) for parametric data or a Kruskal-Wallis test for non-parametric data to test if differences in the Chao1 richness between treatment groups were statistically significant, as implemented by the SciPy package \parencite{PauliVirtanen.2020}.
+
+\subsection{Beta diversity}
+
+Beta diversity (between-group diversity) was analyzed using a principal component analysis (PCA).
+A pseudocount of 0.5 was added to each feature table of abundances (taxa, genes, open reading frames) prior to center log ratio (CLR) transformation to obtain samplewise Aitchison distances --- or CLR-transformed relative abundances.
+A PCA was performed on the resulting table of CLR-transformed relative abundances to investigate differences in antibiotic resistance gene, mobile genetic element, integron gene cassette open reading frame, and bacterial community composition between treatment groups using the sci-kit learn package (v0.24.1).
+Permutational multivariate ANOVA (PERMANOVA) was used to determine if differences in the dispersion between treatment groups within the PCA was statistically significant using the sci-kit bio package.
+
+\subsection{Differential abundance}
+
+Differential abundance analysis was performed to determine if differences in the abundances of bacterial taxa, antibiotic resistance genes, mobile genetic elements, or gene cassette COG functional categories between groups was statistically significant using ANCOM-BC (v1.2.0) with Holm-Bonferroni correction as implemented in R (v4.1.0) \parencite{RCoreTeam.2021, Lin.2020}.
+A one-way analysis of variance (ANOVA) was used to test if differences in the numbers of merged 16S rDNA amplicon reads between treatment groups was statistically significant as implemented by the SciPy package \parencite{PauliVirtanen.2020}.

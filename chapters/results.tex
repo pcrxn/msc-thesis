@@ -2,13 +2,21 @@
 
 Bacterial 16S rDNA, metagenomic DNA, and integron gene cassettes were sequenced from total genomic DNA obtained from untreated control soil and soil exposed to a low (0.1 mg kg$^{-1}$) or high (10 mg kg$^{-1}$) dose of macrolide antibiotics.
 
-\section{Sequencing statistics}
+\todo[color=orange!30]{
+	Vera:
+	"Should start with overview of the sequence data that you generated, from your three sources (integron, 16S, metagenome). Then provide overview description of what info was extracted from these data.  You have a lot of data, so I think would be very helpful for readers to know what is coming, what type of comparisons were made (e.g. comparing richness, differences in community composition of ARGs, and taxonomically, etc…) by treatment level relative to control."
+	I implemented your suggestion to provide a brief overview of the data that were generated at the beginning of this section, but I decided to make a separate section \ref{section:sequencing-statistics} to introduce the purpose of each dataset before describing the sequencing statistics.
+}
+
+\section{Sequencing statistics} \label{section:sequencing-statistics}
 
 Bacterial 16S rDNA was sequenced to investigate differences in soil bacterial community composition and diversity in response to antibiotic exposure.
-16S rDNA MiSeq sequencing generated 6.21 M reads with an average of 50.7 $\pm$ 12.8 K unique reads per sample over 12 samples  (\textit{n} = 4 for each treatment group).
+16S rDNA MiSeq sequencing generated 6.21 M reads with an average of 50.7 $\pm$ 12.8 K unique reads per sample over 12 samples  (\textit{n} = 4 for each treatment group) (Supplementary Figure \ref{supp-table:16S-sequencing-statistics}).
 Following quality control, 6,837 to 72,287 merged reads were used for amplicon sequence variant assignment which resulted in 2,587 amplicon sequence variants.
 One control sample (\textcolor{red}{2019-SEQ-0924}) was excluded from the 16S rDNA amplicon analysis due to a low number of merged reads resulting from the DADA2 workflow  (\textit{n} = 2,444).
-The mean numbers of merged reads were not significantly different between treatment groups after removing this sample (one-way ANOVA, $F$ = 2.3, $p$ = 0.16) (see \textcolor{red}{Supplementary File 1} for more information on sequencing statistics).
+\todo{The sample number 2019-SEQ-0924 will be changed to something more human-readable.}
+The mean numbers of merged reads were not significantly different between treatment groups after removing this sample (one-way ANOVA, $F$ = 2.3, $p$ = 0.16) (see Supplementary Tables \textcolor{red}{XX -- YY} for more information on sequencing statistics).
+\todo{I'll have one supplementary table for each sequencing dataset with summary statistics.}
 The resulting 16S rDNA sequence reads were used to establish amplicon sequence variants which were taxonomically classified, and the abundance of soil bacterial taxa were obtained.
 
 Next, metagenomic DNA was sequenced to investigate differences in the soil bacterial community, antibiotic resistance gene, and mobile genetic element composition and diversity in response to antibiotic exposure.
@@ -27,28 +35,30 @@ The abundances that were obtained from each of these sequencing datasets allowed
 \section{Bacterial community composition and diversity}
 
 At the phylum level, the relative abundance of Cyanobacteria was decreased in the high-dosed soil (Holm-Bonferroni-adjusted $p$-value $<$ 0.001, $W$ = -5.7) but not in the low-dosed soil, relative to the control.
-This result was observed only in the metagenomic analysis and not in the 16S rDNA analysis (Figure \ref{fig:metagenomic-phylum-effect-sizes}; \dummyfig).
+This result was observed only in the metagenomic analysis (Figure \ref{fig:effect-sizes-sig-phyla-metagenomic}) and not in the 16S rDNA analysis (Supplementary Figure \ref{supp-fig:effect-sizes-sig-phyla-16S}).
 This difference was driven by the cyanobacteria \textit{Microcoleus vaginatus} ($p$ $<$ 0.001, $W$ = -5.2) and \textit{Oscillatoria nigro-viridis} ($p$ $<$ 0.001, $W$ = -5.3) in the high-dosed soil.
-Overall, five bacterial species were increased in response to antibiotic exposure (three in the low dose, two in the high dose) and six species were decreased (one in the low dose, five in the high dose) (Table \ref{effect-sizes-sig-taxa}).
+Overall, five bacterial species were increased in response to antibiotic exposure (three in the low dose, two in the high dose) and six species were decreased (one in the low dose, five in the high dose) (Table \ref{table:effect-sizes-sig-taxa}).
 The taxa that were differentially abundant in the low- and high-dosed soil did not overlap (were not in-common) between the 16S rDNA and metagenome taxonomic datasets.
-The richness (one-way ANOVA $F$ = 0.78, $p$ = 0.50) and composition (PERMANOVA pseudo-$F$ = 1.0, $p$ = 0.41) of soil bacterial taxa were not significantly affected by antibiotic exposure (\dummyfig; \dummyfig; \dummyfig; \dummyfig).
+The richness (one-way ANOVA $F$ = 0.78, $p$ = 0.50) and composition (PERMANOVA pseudo-$F$ = 1.0, $p$ = 0.41) of soil bacterial taxa were not significantly affected by antibiotic exposure (Supplementary Figure \ref{fig:chao1-richness-taxa}; Supplementary Figure \ref{supp-fig:pca-ordplots-taxa}).
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/metagenomic/hiseq-phylum-effect-sizes_v01.png}
+		\includegraphics[width=\textwidth]{figures/metagenomic/effect-sizes-sig-phyla-metagenomic_v01.pdf}
 	\caption[Effect sizes of bacterial phyla classified in the metagenomic analysis.]{
 		Effect sizes (fold-changes) of differences in the relative abundances of bacterial phyla classified in the metagenomic analysis relative to the untreated control soil (\textit{n} = 3).
-		Error bars are Bonferroni-adjusted 95\% confidence intervals of effect sizes.
-		\todo[color=green!20]{Add vertical line at 0.}
+		Horizontal lines intersecting with circles are error bars, indicating the extent of Bonferroni-adjusted 95\% confidence intervals of effect sizes.
 	}
-	\label{fig:metagenomic-phylum-effect-sizes}
+	\label{fig:effect-sizes-sig-phyla-metagenomic}
 \end{figure}
 
 \begin{table}[htpb]
 	\centering
 		\includegraphics[width=\textwidth]{tables/16S/effect-sizes-sig-taxa_v01.pdf}
-	\caption[Effect sizes of bacterial phyla classified in the metagenomic analysis.]{
-		Effect sizes of differentially abundant soil bacterial taxa in response to macrolide antibiotic exposure at low (0.1 mg kg-1) and high (10 mg kg-1) doses, as identified by ANCOM-BC in the metagenomic analysis (M) or 16S rDNA analysis (16S). No taxa were identified as differentially abundant by both analyses.
+	\caption[Effect sizes of bacterial taxa classified in the 16S rDNA and metagenomic analyses.]{
+		Effect sizes of differentially abundant soil bacterial taxa in response to macrolide antibiotic exposure at low (0.1 mg kg\textsuperscript{-1}) and high (10 mg kg\textsuperscript{-1}) doses, as identified by ANCOM-BC in the 16S rDNA analysis (16S) or metagenomic analysis (M). No taxa were identified as differentially abundant by both analyses.
+    \todo[color=orange!30]{Vera:
+    I changed all mention of "ASVs" and "species" in this table to "taxa" to avoid confusion (since MetaPhlAn3 classifies taxa to the species-level whereas QIIME 2 does not).
+    }
 	}
 	\label{table:effect-sizes-sig-taxa}
 \end{table}
@@ -58,57 +68,49 @@ The richness (one-way ANOVA $F$ = 0.78, $p$ = 0.50) and composition (PERMANOVA p
 \subsection{Resistome}
 
 A total of 583 unique antibiotic resistance genes were detected across the soil metagenomes.
-High macrolide antibiotic exposure significantly increased the richness of total antibiotic resistance genes in agricultural soil (Tukey’s all-pairs test, $p$ $<$ 0.05) but no effect was observed for the low dose (Figure \ref{fig:chao1-richness}a; \dummyfig).
+High macrolide antibiotic exposure significantly increased the richness of total antibiotic resistance genes in agricultural soil (Tukey’s all-pairs test, $p$ $<$ 0.05) but no effect was observed for the low dose (Figure \ref{fig:chao1-richness}a; Supplementary Figure \ref{supp-fig:args-mges-compartment-size}).
 Similarly, high exposure but not low exposure changed the composition of antibiotic resistance genes in soil bacteria (PERMANOVA pseudo-$F$ = 1.49, $p$ $<$ 0.05, 999 permutations) (Figure \ref{fig:pca-ordplots-args-mges-integrons}a).
-These differences in composition were largely driven by 21 increased ARGs in the high dosed soil ($p$ $<$ 0.05) (Figure \ref{fig:effect-sizes-sig-args}).
-Only five ARGs were differentially abundant (two decreased, three increased) in the low-dosed soil and no ARG was differentially abundant in both treatment groups.
+These differences in composition were largely driven by 21 increased antibiotic resistance genes in the high dosed soil ($p$ $<$ 0.05) (Figure \ref{fig:effect-sizes-sig-args}).
+Only five antibiotic resistance genes were differentially abundant (two decreased, three increased) in the low-dosed soil and no resistance gene was differentially abundant in both treatment groups.
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/mixed/chao1-richness_v02.png}
+		\includegraphics[width=\textwidth]{figures/mixed/chao1-richness_v03.pdf}
 	\caption[Richness of antibiotic resistance genes, mobile genetic elements, and integron gene cassette open reading frames.]{
-		Richness (Chao1) of \textbf{a}) antibiotic resistance genes, \textbf{b}) mobile genetic elements, and \textbf{c}) integron gene cassette open reading frames from bacteria in macrolide antibiotic-exposed and -unexposed soil. Statistically significant comparisons between the antibiotic-exposed and -unexposed bacteria are indicated with a * (Kruskal-Wallis test, $p$ $<$ 0.05).
-		\todo[color=green!20]{Change p $<$ 0.05 within the figure to asterisks.
-		Add a), b), and c).}
+		Richness (Chao1) of \textbf{a}) antibiotic resistance genes, \textbf{b}) mobile genetic elements, and \textbf{c}) integron gene cassette open reading frames from bacteria in macrolide antibiotic-exposed and -unexposed soil.
+		Statistically significant comparisons between the antibiotic-exposed and untreated control soil are displayed (Kruskal-Wallis test, $p$ $<$ 0.05).
+		\todo[color=orange!30]{Vera: I decided to avoid the use of asterisks as significance indicators here and kept the legend the same for consistency with the other plots.}
 	}
 	\label{fig:chao1-richness}
 \end{figure}
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/mixed/pca-ordplots-args-mges-integrons_v02.png}
-	\caption[Principal component analysis ordination plots of metagenomic antibiotic resistance genes, metagenomic mobile genetic elements, and integron gene cassette open reading frames.]{
-		Principal component analysis ordination plots of the CLR-transformed relative abundances of \textbf{a}) metagenomic antibiotic resistance genes, \textbf{b}) metagenomic mobile genetic elements, and \textbf{c}) integron gene cassette open reading frames in antibiotic-exposed and -unexposed soil bacteria.
+		\includegraphics[width=\textwidth]{figures/mixed/pca-ordplots-args-mges-integrons_v03.pdf}
+	\caption[PCA ordination plots of metagenomic antibiotic resistance genes, metagenomic mobile genetic elements, and integron gene cassette open reading frames.]{
+		PCA ordination plots (PC1, PC2) of the CLR-transformed relative abundances of \textbf{a}) metagenomic antibiotic resistance genes, \textbf{b}) metagenomic mobile genetic elements, and \textbf{c}) integron gene cassette open reading frames in antibiotic-exposed and -unexposed soil bacteria.
 		PERMANOVA pseudo-$F$ and $p$-values with 999 permutations are displayed.
-		\todo[color=green!20]{Increase font size for this figure and add a), b), and c).}
+		Shaded areas correspond to 95\% confidence ellipses of treatment groups.
+		Percentages of variance explained by each axis are displayed in the axis titles.
 	}
 	\label{fig:pca-ordplots-args-mges-integrons}
 \end{figure}
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/metagenomic/effect-sizes-sig-args_v05.png}
+		\includegraphics[width=\textwidth]{figures/metagenomic/effect-sizes-sig-args_v06.pdf}
 	\caption[Effect sizes of differentially abundant metagenomic antibiotic resistance genes and their target drug classes.]{
 		\textbf{a}) Effect sizes (fold-changes) of differences in the relative abundances of antibiotic resistance genes in antibiotic-exposed soil metagenomes and \textbf{b}) their target drug classes relative to the untreated control soil (\textit{n} = 3).
 		\textbf{a}. Only the genes that were differentially abundant ($p$ $<$ 0.05) with an absolute effect size of at least 5 (vertical dashed bars), for either treatment group, are shown.
 		Shaded circles represent genes whose abundances were significantly different from the untreated control soil and open circles represent abundances that were not significantly different.
 		Horizontal lines intersecting with circles are error bars, indicating the extent of Bonferroni-adjusted 95\% confidence intervals of effect sizes.
-		\textbf{b}. Black squares indicate target drug classes for which resistance is predicted for each antibiotic resistance gene, and grey squares indicate that resistance to a ribosome-targeting drug class is predicted.
-		\todo{Ed:
-					Hopefully my modifications to the text (with a lot of help from Vera) clarified that metagenomic ARGs were not subject to the confidence-level approach that we used for the integron gene cassette ORFs ---
-					All of the ARG hits in this plot are of quite high-confidence.
-					Re: \textit{mexP} and other ARGs with multi-drug resistance in the heatmap plot, this information is all determined by CARD (e.g. \url{https://card.mcmaster.ca/ontology/40350}).
-					Re: The ARGs associated with quinolones being identified as ribosome-targeting, I think you may be looking at the tetracycline column to the left of the quinolones.
-					I could add a grid to this heatmap to help with visually discerning the columns.
-					}
+		\textbf{b}. Black squares indicate target drug classes for which resistance is predicted for each antibiotic resistance gene, dark grey squares indicate that resistance to a ribosome-targeting drug class is predicted, and light grey squares indicate that resistance to a beta-lactam antibiotic is predicted.
 	}
 	\label{fig:effect-sizes-sig-args}
 \end{figure}
 
-\missingfigure{Supplementary Figure: Set intersections plot.}
-
 The 21 antibiotic resistance genes that had increased relative abundances in the high dosed soil were predicted to confer resistance to 11 different drug classes of antibiotics and triclosan (a biocide), especially aminoglycosides (\textit{n} = 10) and diaminopyrimidines (\textit{n} = 4) (Figure \ref{fig:increased-drug-classes}).
-Sixteen of these ARGs were predicted to confer resistance to classes of antibiotics which, like macrolides, target the ribosome.
+Sixteen of these antibiotic resistance genes were predicted to confer resistance to classes of antibiotics which, like macrolides, target the ribosome.
 Only two of these increased antibiotic resistance genes were predicted to encode resistance to macrolides (\textit{mphE}, \textit{mexQ}).
 The largest effect size of the antibiotic resistance genes that had increased relative abundances in the high dose was $W$ = 22.9 $\pm$ 0.5 for \textit{aph(3’’)-Ib} / \textit{strA} ($p$ $<$ 0.05).
 
@@ -118,40 +120,39 @@ The largest effect size of the antibiotic resistance genes that had increased re
 	\caption[Counts of target drug classes for enriched metagenomic antibiotic resistance genes.]{
 		Counts of target drug classes for which resistance was predicted to be encoded by antibiotic resistance genes within the soil metagenome.
 		Only counts for antibiotic resistance genes that were enriched in response to macrolide antibiotic exposure are displayed ($p$ $<$ 0.05, \textit{n} = 3).
-		\todo{Ed:
+		\todo[color=red!20]{Ed:
 					I changed the title of this plot to clarify the meaning of the counts here.
 					Re: "So there were 10 aminoglycoside genes that were more abundant in the high rate relative to the control, for example?"
 					Yes, there were 10 aminoglycoside resistance genes that were more abundant in the high rate relative to the control, here.
-					Re: "Here and elsewhere, does the conservative vs liberal CARD approach need to be spelled out?"
-					Please see my comment under Figure \ref{fig:effect-sizes-sig-args}.
 		}
 	}
 	\label{fig:increased-drug-classes}
 \end{figure}
 
 Analysis of antibiotic resistance genes grouped by their target drug class indicated that the compositions of aminoglycoside, diaminopyrimidine, phenicol, tetracycline, lincosamide, and streptogramin resistance genes, but not macrolide resistance genes, were significantly altered in the high-dosed soil ($p$ $<$ 0.05, 999 permutations) (Figure \ref{fig:pca-ordplots-drug-classes}).
-Of the three antibiotic resistance genes that had increased relative abundances in the low-dosed soil ($p$ $<$ 0.05), two were predicted to encode resistance to macrolide antibiotics (\textit{mexL}, $W$ = 5.6 $\pm$ 0.2; \textit{mexP}, $W$ = 5.2 $\pm$ 0.2) and one was predicted to encode resistance to aminoglycosides (\textit{aac(6’)-IIa}, $W$ = 4.0 $\pm$ 0.4). No ARGs had increased relative abundances in both doses.
+Of the three antibiotic resistance genes that had increased relative abundances in the low-dosed soil ($p$ $<$ 0.05), two were predicted to encode resistance to macrolide antibiotics (\textit{mexL}, $W$ = 5.6 $\pm$ 0.2; \textit{mexP}, $W$ = 5.2 $\pm$ 0.2) and one was predicted to encode resistance to aminoglycosides (\textit{aac(6’)-IIa}, $W$ = 4.0 $\pm$ 0.4). No antibiotic resistance genes had increased relative abundances in both doses.
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/metagenomic/pca-ordplots-drug-classes_v02.png}
-	\caption[Principal component analysis ordination plots of metagenomic antibiotic resistance genes grouped by target drug class.]{
-		Principal component analysis ordination plots of CLR-transformed relative abundances of antibiotic resistance genes in the untreated control soil and in the low- and high-dosed soil, grouped by their target drug class.
+		\includegraphics[width=\textwidth]{figures/metagenomic/pca-ordplots-drug-classes_v03.pdf}
+	\caption[PCA ordination plots of metagenomic antibiotic resistance genes grouped by target drug class.]{
+		PCA ordination plots (PC1, PC2) of CLR-transformed relative abundances of antibiotic resistance genes in the untreated control soil and in the low- and high-dosed soil, grouped by their target drug class.
 		PERMANOVA pseudo-$F$ and $p$-values with 999 permutations are displayed.
-		\todo[color=green!20]{Increase font size for this plot.}
+		Shaded areas correspond to 95\% confidence ellipses of treatment groups.
+		Percentages of variance explained by each axis are displayed in the axis titles.
 	}
 	\label{fig:pca-ordplots-drug-classes}
 \end{figure}
 
-Seven ARGs had significantly decreased relative abundances relative to the control soil: five in the high dose and two in the low dose ($p$ $<$ 0.05).
-Interestingly, all seven of these ARGs were predicted to encode beta-lactamases (Figure \ref{fig:effect-sizes-sig-args}).
+Seven antibiotic resistance genes had significantly decreased relative abundances relative to the control soil: five in the high dose and two in the low dose ($p$ $<$ 0.05).
+Interestingly, all seven of these resistance genes were predicted to encode beta-lactamases (Figure \ref{fig:effect-sizes-sig-args}).
 \textit{bla}\textsubscript{SHV-71} ($W$ = -24.1 $\pm$ 0.3), \textit{bla}\textsubscript{SHV-165} ($W$ = -11.0 $\pm$ 0.3), \textit{bla}\textsubscript{CTX-M-117} ($W$ = -7.6 $\pm$ 0.5), \textit{E. coli} \textit{ampC} ($W$ = -5.7 $\pm$ 0.4), and \textit{bla}\textsubscript{PEDO-1} ($W$ = -4.4 $\pm$ 0.2) were decreased in the high dose, and \textit{bla}\textsubscript{TEM-1} ($W$ = -4.9 $\pm$ 0.3) and \textit{bla}\textsubscript{TEM-22} ($W$ = -4.1 $\pm$ 0.8) were decreased in the low dose.
 
 \subsection{Mobilome}
 
 In addition to antibiotic resistance genes, the composition and diversity of mobile genetic elements within the soil metagenome was investigated.
 Overall, 398 unique mobile genetic element variants were detected across the soil metagenomes, including several transposases and insertion sequence elements (e.g IS91, IS26).
-As observed with antibiotic resistance genes, the richness of mobile genetic elements was significantly increased in the soil metagenome (Tukey’s all-pairs test, $p$ $<$ 0.05) (Figure \ref{fig:chao1-richness}b; \dummyfig), and the composition of mobile genetic elements was significantly affected by the high dose of macrolides (PERMANOVA pseudo-$F$ = 2.01, $p$ $<$ 0.05, 999 permutations) (Figure \ref{fig:pca-ordplots-args-mges-integrons}b).
+As observed with antibiotic resistance genes, the richness of mobile genetic elements was significantly increased in the soil metagenome (Tukey’s all-pairs test, $p$ $<$ 0.05) (Figure \ref{fig:chao1-richness}b; Supplementary Figure \ref{supp-fig:args-mges-compartment-size}), and the composition of mobile genetic elements was significantly affected by the high dose of macrolides (PERMANOVA pseudo-$F$ = 2.01, $p$ $<$ 0.05, 999 permutations) (Figure \ref{fig:pca-ordplots-args-mges-integrons}b).
 
 This altered composition of mobile genetic elements in the high-dosed soil was largely driven by 23 mobile genetic element variants with increased relative abundances ($p$ $<$ 0.05) (Figure \ref{fig:effect-sizes-sig-mges}).
 Of these 23 increased mobile genetic elements, 15 were identified as \textit{tnpA}, three as \textit{intI1}, three as \textit{qacE$\Delta$1}, one as IS91, and one as \textit{tnpAN} variants.
@@ -159,21 +160,20 @@ The maximum effect size of the mobile genetic element variants that were increas
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/metagenomic/effect-sizes-sig-mges_v02.png}
+		\includegraphics[width=\textwidth]{figures/metagenomic/effect-sizes-sig-mges_v03.pdf}
 	\caption[Effect sizes of differentially abundant metagenomic mobile genetic elements.]{
 		Effect sizes (fold-changes) of differences in the relative abundances of mobile genetic elements in antibiotic-exposed soil metagenomes relative to the untreated control soil (\textit{n} = 3).
 		Only the mobile genetic elements that were differentially abundant ($p$ $<$ 0.05) with an absolute effect size of at least 5 (vertical dashed bars), for either treatment group, are shown.
 		The name of the mobile genetic element is show on the left, and the GenBank accession number of the reference sequence's genome is shown on the right.
 		Shaded circles represent mobile genetic elements whose abundances were significantly different from the untreated control soil and open circles represent abundances that were not significantly different.
 		Horizontal lines intersecting with circles are error bars, indicating the extent of Bonferroni-adjusted 95\% confidence intervals of effect sizes.
-		\todo{Vera: I changed the wording of this figure caption to hopefully clarify what the GenBank number is representing. Does this make sense / was this phrased correctly?}
-		\todo[color=green!20]{Increase font size of this plot.}
+		\todo[color=orange!30]{Vera: I changed the wording of this figure caption to hopefully clarify what the GenBank number is representing. Does this make sense / was this phrased correctly?}
 	}
 	\label{fig:effect-sizes-sig-mges}
 \end{figure}
 
 The only mobile genetic element variant with an increased relative abundance in the low-dosed soil was identified as \textit{tnpA} ($W$ = 6.0 $\pm$ 0.3, $p$ $<$ 0.05) (Figure \ref{fig:effect-sizes-sig-mges}).
-Of the three mobile genetic element variants that were decreased in the low-dosed soil (IS91, \textit{n} = 2; \textit{tnpA}, \textit{n} = 1), one IS91 variant was similarly decreased in the high-dosed soil (low dose $W$ = -5.8 $\pm$ 0.4, high dose $W$ = -5.7 $\pm$ 0.4).
+Of the three mobile genetic element variants that were decreased in the low-dosed soil (IS91, \textit{n} = 2; \textit{tnpA}, \textit{n} = 1), one IS91 variant was similarly decreased in the high-dosed soil (low dose, $W$ = -5.8 $\pm$ 0.4; high dose, $W$ = -5.7 $\pm$ 0.4).
 No other mobile genetic element variants were differentially abundant in both doses.
 
 \section{Integron gene cassette composition and diversity}
@@ -185,11 +185,11 @@ Integron gene cassette amplicon short reads were mapped back onto the unique gen
 
 Both the richness (one-way ANOVA $F$ = 0.05, $p$ = 0.95) and composition (PERMANOVA pseudo-$F$ = 1.0, $p$ = 0.42) of integron gene cassette open reading frames were unaffected by antibiotic exposure (Figure \ref{fig:chao1-richness}c; Figure \ref{fig:pca-ordplots-args-mges-integrons}c).
 Overall, 370 open reading frames (1\%) were identified as differentially abundant relative to the untreated control soil ($p$ $<$ 0.05); similar percentages of differentially abundant gene cassette open reading frames were identified in the low-dosed (\textit{n} = 144, 54\%) and high-dosed (\textit{n} = 246, 55\%) soil bacteria.
-\todo{The FDR of ANCOM-BC is probably close to 1\% \ldots Would it be interesting/useful to test this?}
+\todo[color=blue!20]{The FDR of ANCOM-BC is probably close to 1\% \ldots Would it be interesting/useful to test this?}
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=\textwidth]{figures/integron/effect-sizes-sig-integron-orfs_v02.png}
+		\includegraphics[width=\textwidth]{figures/integron/effect-sizes-sig-integron-orfs_v03.pdf}
 	\caption[Effect sizes of differentially abundant integron gene cassette open reading frames.]{
 		Effect sizes (fold-changes) of differences in the relative abundances of integron gene cassette open reading frames in antibiotic-exposed soil bacteria relative to the untreated control soil (\textit{n} = 3).
 		Only the open reading frames that were differentially abundant ($p$ $<$ 0.05) with an absolute effect size of at least 10 (vertical dashed bars), for either treatment group, are shown.
@@ -201,18 +201,12 @@ Overall, 370 open reading frames (1\%) were identified as differentially abundan
 	\label{fig:effect-sizes-sig-integron-orfs}
 \end{figure}
 
-In total, 60 to 2,997 unique open reading frames (0.2 to 8.3\%) were predicted to encode antibiotic resistance depending on the confidence level used (see \ref{section:cassette-sequence-analysis}).
-For the antibiotic resistance genes predicated at each confidence level, the most frequently detected target drug class of antibiotic resistance genes was aminoglycoside \dummysupfig and the most frequently detected drug resistance mechanism was antibiotic inactivation \dummysupfig.
+In total, 60 to 2,997 unique open reading frames (0.2 to 8.4\%) were predicted to encode antibiotic resistance depending on the confidence level used (see \ref{section:cassette-sequence-analysis}).
+For the antibiotic resistance genes predicated at each confidence level, the most frequently detected target drug class of antibiotic resistance genes was aminoglycoside and the most frequently detected drug resistance mechanism was antibiotic inactivation.
 Depending on the confidence level, 1 to 17 putative antibiotic resistance genes had increased relative abundances in response to antibiotic exposure and 1 to 13 putative antibiotic resistance genes decreased ($p$ $<$ 0.05) \dummysuptab.
-\todo{A supplementary table with summary statistics for antibiotic resistance gene identification in integron gene cassette open reading frames.}
 Additionally, no putative antibiotic resistance genes were increased or decreased in both treatment groups at any confidence level.
-
-\missingfigure{Supplementary Figure: Heatmap of antibiotic resistance gene drug classes targeted by putative gene-cassetted embedded antibiotic resistance genes for each confidence level.}
-\missingfigure{Supplementary Figure: Heatmap of antibiotic resistance gene drug resistance mechanisms of each putative gene-cassetted embedded antibiotic resistance genes for each confidence level.}
+\todo[color=green!20]{Design a table to summarize the results for each confidence level for the integron gene cassette ORF ARG analysis.}
 
 Integron gene cassette open reading frames were also assigned COG functional categories to investigate if macrolide exposure changed the overall function of the cassette metagenome.
-Only 5,206 (14\%) unique open reading frames could be assigned a functional category and 2,053 (5.7\%) were assigned a non- ‘function unknown’ (S) category --- i.e. 5.7\% of identified open reading frames shared homology with a gene whose function had been characterized \dummysupfig.
-The open reading frames that were assigned to functional category EK (E: amino acid transport and metabolism; K: transcription) had slightly increased relative abundances ($W$ = 3.4 $\pm$ 1.1, $p$ $<$ 0.05) and those assigned to category DJ (D: cell cycle control, mitosis and meiosis; J: translation, ribosomal structure and biogenesis) were slightly decreased ($W$ = -3.6 $\pm$ 0.8, $p$ $<$ 0.05) in the soil bacteria exposed to a high dose of macrolide antibiotics, but only a few open reading frames were assigned to each of these categories (EK, \textit{n} = 3; DJ, \textit{n} = 2) \dummysupfig.
-
-\missingfigure{Supplementary Figure: Bar plot of counts of COG functional categories assigned to integron gene cassette open reading frames.}
-\missingfigure{Supplementary Figure: Effect size plot of integron gene cassette open reading frames, grouped by COG functional category.}
+Only 5,206 (15\%) unique open reading frames could be assigned a functional category, and of those, 2,053 (39\%) were assigned a non- ‘function unknown’ (S) category (Supplementary Figure \ref{supp-fig:percentages-cog-categories}).
+The open reading frames that were assigned to functional category EK (E: amino acid transport and metabolism; K: transcription) had slightly increased relative abundances ($W$ = 3.4 $\pm$ 1.1, $p$ $<$ 0.05) and those assigned to category DJ (D: cell cycle control, mitosis and meiosis; J: translation, ribosomal structure and biogenesis) were slightly decreased ($W$ = -3.6 $\pm$ 0.8, $p$ $<$ 0.05) in the soil bacteria exposed to a high dose of macrolide antibiotics, but only a few open reading frames were assigned to each of these categories (EK, \textit{n} = 3; DJ, \textit{n} = 2).

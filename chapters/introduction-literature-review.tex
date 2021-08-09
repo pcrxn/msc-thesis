@@ -66,25 +66,31 @@ Of all of the known non-plasmid mobile genetic elements to mobilize antibiotic r
 
 \subsection{Integrons}
 
-Integrons are mobile genetic elements that are capable of acquiring, re-arranging, and expressing antibiotic resistance genes within their environments, but notably lack the capability to move their selves, relying upon other mobile genetic elements such as plasmids and transposons for mobility \parencite{Gillings.2014}.
+Integrons are mobile genetic elements that are capable of acquiring, expressing, and re-arranging antibiotic resistance genes within their environments, but notably lack the capability to move their selves, relying upon other mobile genetic elements such as plasmids and transposons for mobility \parencite{Gillings.2014}.
 Integrons sample their environment for gene cassettes \parencite{Ghaly.2020} --- pieces of DNA that usually contain one open reading frame followed by a cassette-associated recombination site (\textit{attC}).
 Gene cassettes carry a diverse repertoire of antibiotic resistance genes, putative virulence genes, and many other genes of unknown function that have been proposed as a discovery platform for potentially novel natural products \parencite{Ma.2017, Ghaly.2019, Ghaly.2020}.
 In a recent sequencing study of the gene cassette metagenomes of soil samples from Antarctica and Australia, it was estimated that there are 4,000 to 18,000 unique gene cassettes per 0.3 g of soil \parencite{Ghaly.2019}.
-\todo{Vera:
+\todo[color=orange!30]{Vera:
 			The leading researchers in the field refer to the totality of gene cassettes in the environment as the "cassette metagenome", so I think it'd be a good idea to keep this terminology for consistency with the literature.
 			E.g. \url{http://www.ncbi.nlm.nih.gov/pubmed/31948729}
 }
 
-Integrons are characterized by i) an integron-integrase gene (intI) encoding a site-specific tyrosine recombinase, ii) an integron-associated recombination site (\textit{attI}), where incoming gene cassettes are inserted with the help of IntI, and iii) an integron-associated promoter (Pc) which expresses downstream gene cassettes (Figure \ref{fig:class-1-integron-structure}) \parencite{Gillings.2014}.
-IntI catalyzes the recombination of \textit{attC} with \textit{attI} to insert an incoming gene cassette downstream of Pc and can also reversibly excise an integrated gene cassette from the integron structure.
+Integrons are characterized by i) an integron-integrase gene (intI) encoding a site-specific tyrosine recombinase, ii) an integron-associated recombination site (\textit{attI}), where incoming gene cassettes are inserted with the help of IntI, and iii) an integron-associated promoter (P\textsubscript{C}) which expresses downstream gene cassettes (Figure \ref{fig:class-1-integron-structure}) \parencite{Gillings.2014}.
+IntI catalyzes the recombination of \textit{attC} with \textit{attI} to insert an incoming gene cassette downstream of P\textsubscript{C} and can also reversibly excise an integrated gene cassette from the integron structure.
 The recombination event produces two daughter molecules: a duplicate of the original integron structure, and the other with the integrated gene cassette \parencite{Ghaly.2020}.
 This phenomenon allows the host bacterium to sample each gene cassette for fitness tradeoffs prior to stable integration, and in the context of a cassette-embedded antibiotic resistance gene, maintain the antibiotic resistance phenotype if it confers a selective advantage \parencite{Ghaly.2020}.
 
 \begin{figure}[htpb]
 	\centering
-		\includegraphics[width=0.75\textwidth]{figures/integron/class-1-integron-structure_v02.pdf}
+		\includegraphics[width=0.75\textwidth]{figures/integron/class-1-integron-structure_v03.pdf}
 	\caption[Structure of a class 1 integron.]{
-		A class 1 integron is characterized by its class 1 integron-integrase gene (\textit{intI1}) and a 3' conserved sequenced.
+		Class 1 integrons are clinically-relevant integrons that are uniquitous in human-impacted environments, and are characterized by their class 1 integron-integrase gene (\textit{intI1}) and 3' conserved sequence (3'-CS) which contains a partially deleted biocide resistance gene (\textit{qacE$\Delta$1}) and a sulfonamide antibiotic resistance gene (\textit{sul1}).
+		Cassette-associated recombination is similar for all classes of integrons:
+		\textbf{1}) \textit{intI1} is expressed by the integron-integrase promoter P\textsubscript{\textit{intI1}},
+		\textbf{2}) the tyrosine recombinase IntI1 catalyzes the recombination of the incoming gene cassette's attachment site (\textit{attC}) with the integron-associated attachment site (\textit{attI}),
+		\textbf{3}) the integron-associated promoter (P\textsubscript{C}) expresses the inserted gene cassette, and
+		\textbf{4}) another gene cassette may be inserted to form a gene cassette array of the two cassettes.
+		This process may continue for up to eight gene cassettes.
 	}
 	\label{fig:class-1-integron-structure}
 \end{figure}
@@ -102,8 +108,13 @@ Furthermore, class 1 integrons form linkage clusters of antibiotic resistance in
 Of the hundreds of different classes of integrons \parencite{Abella.2015}, the class 1 integron is the most prolific in human pathogens and is also abundant in soil \parencite{Dawes.2010, RuizMartinez.2011, Gillings.2018}.
 Class 1 integrons typically carry less than six and no more than eight gene cassettes \parencite{Gillings.2014, Naas.2001}.
 Class 1 integrons are distinguished from other classes of integrons by their \textit{intI1} gene known as the class 1 integron-integrase, which are 98\% identical in amino acid sequence \parencite{Roy.2021}.
-The “clinical” or “sul1-type” variant of class 1 integrons has a 3’ conserved segment with a partially deleted but semi-functional disinfectant resistance gene qacE${\Delta}$1, followed by the sulfonamide antibiotic resistance gene sul1 (Figure \ref{class-1-integron-structure}) \parencite{Partridge.2018}.
-From a One Health perspective, class 1 integrons are of particular concern because i) they have become endemic to human and environmental microbiomes \parencite{Gillings.2017}, ii) they are increased in the presence of antibiotic pollution \parencite{Gillings.2017, Wright.2008, Stalder.2014}, iii) their gene cassette content is biased towards conferring antibiotic resistance phenotypes \parencite{Yang.2021}, iv) some antibiotics indirectly increase the transcriptional activity of \textit{intI1}, thereby promoting gene cassette recombination \parencite{Baharoglu.2010}, and v) they form co-occurrence linkage clusters with other mobile genetic elements and antibiotic resistance genes \parencite{Pal.2015}.
+The “clinical” or “\textit{sul1}-type” variant of class 1 integrons has a 3’ conserved segment with a partially deleted but semi-functional disinfectant resistance gene \textit{qacE${\Delta}$1}, followed by the sulfonamide antibiotic resistance gene \textit{sul1} (Figure \ref{fig:class-1-integron-structure}) \parencite{Partridge.2018}.
+From a One Health perspective, class 1 integrons are of particular concern because
+i) they have become endemic to human and environmental microbiomes \parencite{Gillings.2017},
+ii) they are increased in the presence of antibiotic pollution \parencite{Gillings.2017, Wright.2008, Stalder.2014},
+iii) their gene cassette content is biased towards conferring antibiotic resistance phenotypes \parencite{Yang.2021},
+iv) some antibiotics indirectly increase the transcriptional activity of \textit{intI1}, thereby promoting gene cassette recombination \parencite{Baharoglu.2010}, and
+v) they form co-occurrence linkage clusters with other mobile genetic elements and antibiotic resistance genes \parencite{Pal.2015}.
 Class 1 integrons are known to be enriched in soils that have been polluted with macrolide antibiotics \parencite{Lau.2020}.
 
 \section{Macrolide antibiotics}
@@ -169,10 +180,18 @@ There are concerns, however, that the long-term application of biosolids to agri
 
 \subsection{Concentrations of macrolide antibiotics in biosolids and comparison to PNEC}
 
-In a survey of 74 locations producing treated biosolids in the United States, the 95\textsuperscript{th} percentile concentrations of detected macrolides were 0.12 mg kg\textsuperscript{-1} biosolids (dry weight) erythromycin, 0.17 mg kg\textsuperscript{-1} clarithromycin, and 3.17 mg kg\textsuperscript{-1} azithromycin \parencite{U.S.EnvironmentalProtectionAgency.2021}.
-These concentrations are 100-fold, 680-fold, and 1,268-fold greater than the Predicted No-Effect Concentrations (PNEC) for these antibiotics in freshwater as determined by \cite{BengtssonPalme.2016}.
+In a survey of 74 locations producing treated biosolids in the United States, the 95\textsuperscript{th} percentile concentrations of detected macrolides were 0.1 mg kg\textsuperscript{-1} biosolids (dry weight) erythromycin, 0.2 mg kg\textsuperscript{-1} clarithromycin, and 3.2 mg kg\textsuperscript{-1} azithromycin \parencite{U.S.EnvironmentalProtectionAgency.2021}.
+Biosolids are typically applied at a rate of 1\% dw dw\textsuperscript{-1} soil, meaning that the upper-range of environmentally relevant concentrations for these macrolides in biosolids-applied soil would be 0.001 mg kg\textsuperscript{-1} erythromycin, 0.002 mg kg\textsuperscript{-1} clarithromycin, and 0.032 mg kg\textsuperscript{-1} azithromycin \parencite{Sidhu.2021}.
+These concentrations are equal to, 8-fold, and 128-fold greater than the Predicted No-Effect Concentrations (PNEC) for erythromycin, clarithromycin, and azithromycin in surface water, as determined by \cite{BengtssonPalme.2016}.
 The PNEC is the concentration above which antibiotic resistance could be selected for in environmental bacteria and have been proposed as limits for the regulation of antibiotics in the environment.
-The 95\textsuperscript{th} percentile concentrations of macrolides in biosolids greatly exceed the PNECs for \textcolor{red}{freshwater}, and biosolids could therefore realistically select for antibiotic resistance in land-applied soil.
+The 95\textsuperscript{th} percentile concentrations of macrolides in municipal biosolids are equal to or exceed those for \textcolor{red}{freshwater}, and biosolids could therefore realistically select for antibiotic resistance in land-applied soil.
+\todo[color=blue!20]{I think most PNECs are based on aqueous environments, no experimentally deduced soil PNECs...}
+
+% \todo[color=red!20]{Ed:
+% I used Johan's paper for estimation of the PNECs, but I believe these estimates were for surface water.
+% I found an alternative resource for PNECs which apply an equation to the surface water value to estimate the soil PNEC (NORMAN Ecotoxicology Database, \url{https://www.norman-network.com/nds/ecotox/}). This database was used by a paper that Thomas Berendonk was on (\url{https://doi.org/10.1016/j.envint.2020.105597}).
+% Do you think I should use this database over Johan's values?
+% }
 
 \subsection{Critical knowledge gaps}
 
@@ -188,7 +207,7 @@ Because the health of humans and soil are interconnected under the One Health fr
 \subsection{16S rDNA sequencing}
 
 Most soil bacteria are uncultivable:
-of the approximately 108 cells of bacteria that can be found in a single gram of bulk soil, less than 1\% are estimated to be cultivable using standard growth techniques \parencite{Raynaud.2014, vanPham.2012}.
+of the approximately 10\textsuperscript{8} cells of bacteria that can be found in a single gram of bulk soil, less than 1\% are estimated to be cultivable using standard growth techniques \parencite{Raynaud.2014, vanPham.2012}.
 The selectivity of nutrient media, competition in media by faster growing organisms, and low abundance in the environment relative to other species all contribute to the difficulty in culturing most soil bacteria \parencite[229–300]{vanElsas.2019b}.
 Sequencing-based approaches to investigate the bacterial community have shone a light on the incredible diversity of uncultivable soil bacteria \parencite{Hug.2016} and have allowed researchers to investigate the responses of the soil bacterial community to environmental perturbations \parencite{Isobe.2019, Isobe.2020}.
 Of the different sequencing-based approaches available to investigate soil bacterial community composition, 16S rDNA sequencing and metagenomic sequencing are presently the most common.
@@ -215,8 +234,8 @@ Metagenomic sequencing can also be used to identify antibiotic resistance genes 
 Metagenomic sequencing confers many advantages over other methods for studying antibiotic resistance in soil bacteria.
 Antibiotic resistance genes and mobile genetic elements are distributed among diverse soil bacterial taxa --- many of which are difficult to cultivate under normal laboratory conditions \parencite{Dunivin.2019}.
 Metagenomic sequencing, compared to PCR-based methods, also allows for the discovery of novel antibiotic resistance genes and mobile genetic elements for which PCR primers have not been developed or are not available \parencite{Boolchandani.2019}.
-Antibiotic resistance genes and mobile genetic elements can be identified in metagenomic sequence data by aligning sequence reads to databases of known antibiotic resistance genes and mobile genetic elements, such as the Comprehensive Antibiotic Resistance Database (\gls{CARD}) \parencite{Alcock.2020}.
-Other bioinformatics software, such as Metagenomic Markov models for Antimicrobial Resistance Characterization (\gls{Meta-MARC}), use machine learning principles to identify novel antibiotic resistance genes from metagenomic sequence data \parencite{Lakin.2019}.
+Antibiotic resistance genes and mobile genetic elements can be identified in metagenomic sequence data by aligning sequence reads to databases of known antibiotic resistance genes and mobile genetic elements, such as the Comprehensive Antibiotic Resistance Database (CARD) \parencite{Alcock.2020}.
+Other bioinformatics software, such as Metagenomic Markov models for Antimicrobial Resistance Characterization (Meta-MARC), use machine learning principles to identify novel antibiotic resistance genes from metagenomic sequence data \parencite{Lakin.2019}.
 
 \subsection{Integron gene cassette sequencing}
 
@@ -243,7 +262,7 @@ Following the observed increased abundances of antibiotic resistance genes and m
 To further investigate if macrolide antibiotic exposure of soil promotes resistance at an environmentally realistic dose, and to elucidate the mechanisms of increased resistance at an effect-inducing unrealistically high dose, we obtained soil DNA from field plots treated with macrolide antibiotics for ten years and from untreated plots.
 The 16S rDNA and class 1 integron gene cassettes were PCR amplified and sequenced, and the total soil metagenome was sequenced.
 
-I hypothesized that long-term macrolide antibiotic exposure of agricultural soil, at both a realistic dose (0.1 mg kg-1 soil) and an unrealistically high dose (10 mg kg-1) for biosolids carryover, would affect the composition and diversity of the soil bacterial community, resistome, and mobilome.
+I hypothesized that long-term macrolide antibiotic exposure of agricultural soil, at both a realistic dose (0.1 mg kg\textsuperscript{-1} soil) and an unrealistically high dose (10 mg kg\textsuperscript{-1}) for biosolids carryover, would affect the composition and diversity of the soil bacterial community, resistome, and mobilome.
 
 I predicted that:
 

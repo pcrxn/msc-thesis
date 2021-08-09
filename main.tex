@@ -65,6 +65,7 @@
 \usepackage{glossaries} % For abbreviations
 \usepackage{textcomp} % For trademark symbols
 \usepackage{todonotes} % For inserting to-do notes; can be used for commenting
+\usepackage{marvosym} % For inserting the cross symbol % \Cross
 
 % Western thesis template packages
 \usepackage{tocloft} % For custom formatting of ToC and List of 'X'
@@ -75,6 +76,7 @@
 % Line spacing
 \usepackage{setspace}
 \onehalfspacing % For 1.5 line spacing
+%\doublespacing % For double line spacing
 
 %-------------------------------------------------------------------------------
 % Initialize
@@ -96,8 +98,10 @@
 \restylefloat{table} % Place captions above tables
 \definecolor{pastelred}{HTML}{D73231}
 \captionsetup{labelfont = {bf, color = pastelred},
+              font = {stretch = 1.25},
               justification = justified,
-              labelsep = quad}
+              labelsep = quad
+              }
 \counterwithout{figure}{chapter} % For continuous figure numbering
 \counterwithout{table}{chapter} % For continuous table numbering
 
@@ -106,7 +110,7 @@
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % For centering columns in tables (use P instead of p)
 \addbibresource{references.bib}
 \makeglossaries
-\setuptodonotes{inline, color=blue!20}
+\setuptodonotes{inline, color=green!20}
 \DeclareFloatingEnvironment[name={Supplementary Figure},fileext=lsf,listname={List of Supplementary Figures}]{suppfigure} % Set up supplementary figures
 \DeclareFloatingEnvironment[name={Supplementary Table},fileext=lsf,listname={List of Supplementary Tables}]{supptable} % Set up supplementary figures
 
@@ -126,6 +130,8 @@
 \newglossaryentry{COG}{name={COG}, description={Cluster of Orthologous Groups}}
 \newglossaryentry{Meta-MARC}{name={Meta-MARC}, description={Metagenomic Markov models for Antimicrobial Resistance Characterization}}
 \newglossaryentry{PERMANOVA}{name={PERMANOVA}, description={Permutational multivarate analysis of variance}}
+\newglossaryentry{PCA}{name={PCA}, description={Principal component analysis}}
+\newglossaryentry{PNEC}{name={PNEC}, description={Predicted no-effect concentration}}
 
 %-------------------------------------------------------------------------------
 % Preliminary document
@@ -165,8 +171,8 @@
 \listoftables\newpage
 
 % List of Appendices
-% \addcontentsline{toc}{chapter}{List of Appendices}
-% \listofmyappendices\newpage
+\addcontentsline{toc}{chapter}{List of Appendices}
+\listofmyappendices\newpage
 
 % List of Abbreviations
 \addcontentsline{toc}{chapter}{List of Abbreviations}
@@ -191,21 +197,30 @@
 %% "\input" makes each chapter start on a new page.                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{chapters/chapter1}
-\include{chapters/chapter2}
-\include{chapters/chapter3}
+\include{chapters/introduction-literature-review}
+\include{chapters/methods}
+\include{chapters/results}
+\include{chapters/discussion}
 
 % Add a line for bibliography in ToC
 \addcontentsline{toc}{chapter}{Bibliography}
 
-\todo{Need to go through all of the references and make sure formatting/names are correct.}
+\todo[color=blue!20]{
+  I'll go through all of the references on the following pages and make sure formatting/names are correct after I'm finished adding all of the citations to the thesis.
+  Is the overall format okay?
+  Should I include more/less author names?
+  URLs?
+  DOIs?
+}
+\todo[color=blue!20]{For the Committee for Medicinal Products for Human Use (2006) reference, the report was initially published in 2006 but updated in 2015. Should I indicate the year as 2006 or 2015?}
 \printbibliography
 
 % Appendices.
 \begin{appendices}
-\include{appendices/appendixa}
+\include{appendices/supplementary-info}
 \end{appendices}
 
 \include{curriculum-vitae/cv.tex}
+\todo{Fill this out.}
 
 \end{document}
