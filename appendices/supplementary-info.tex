@@ -1,14 +1,15 @@
-\chapter{Supplementary Information}
-\myappendices{Supplementary Information}
+\chapter{Supplementary Information}\label{AppA}
+\myappendices{Appendix \ref{AppA}}
 
 %-------------------------------------------------------------------------------
 % Supplementary Figures
 %-------------------------------------------------------------------------------
 
+\newpage
 \begin{suppfigure}[H]
 	\centering
-		\includegraphics[width=\textwidth]{supp-figures/16S/effect-sizes-sig-phyla-16S_v01.pdf}
-	\caption[Effect sizes of bacterial phyla classified in the metagenomic analysis.]{
+		\includegraphics[width=\textwidth]{supp-figures/16S/effect-sizes-sig-phyla-16S_v02.pdf}
+	\caption[Effect sizes (fold-changes) of differences in the relative abundances of bacterial phyla classified in the 16S rDNA analysis relative to the untreated control soil (\textit{n} = 4 for antibiotic-exposed groups, \textit{n} = 3 for untreated control group).]{
 		Effect sizes (fold-changes) of differences in the relative abundances of bacterial phyla classified in the 16S rDNA analysis relative to the untreated control soil (\textit{n} = 4 for antibiotic-exposed groups, \textit{n} = 3 for untreated control group).
 		Horizontal lines intersecting with circles are error bars, indicating the extent of Bonferroni-adjusted 95\% confidence intervals of effect sizes.
 	}
@@ -18,18 +19,18 @@
 \begin{suppfigure}[H]
 	\centering
 		\includegraphics[width=0.8\textwidth]{supp-figures/mixed/chao1-richness-taxa_v02.pdf}
-	\caption[Richness of bacterial taxa.]{
+	\caption[Richness (Chao1) of bacterial taxa as classified by \textbf{a}) the 16S rDNA analysis or \textbf{b}) the metagenomic analysis in macrolide antibiotic-exposed and untreated control soil.]{
 		Richness (Chao1) of bacterial taxa as classified by \textbf{a}) the 16S rDNA analysis or \textbf{b}) the metagenomic analysis in macrolide antibiotic-exposed and untreated control soil.
 		There were no statistically significant differences between the antibiotic-exposed and -unexposed groups.
 		\textsuperscript{\Cross} \textit{n} = 4 for the antibiotic-exposed groups, \textit{n} = 3 for the untreated control group.
 	}
-	\label{fig:chao1-richness-taxa}
+	\label{supp-fig:chao1-richness-taxa}
 \end{suppfigure}
 
 \begin{suppfigure}[htpb]
 	\centering
 		\includegraphics[width=0.75\textwidth]{supp-figures/mixed/pca-ordplots-taxa-metagenome-16S_v02.pdf}
-	\caption[PCA ordination plots of bacterial taxa.]{
+	\caption[PCA ordination plots (PC1, PC2) of the CLR-transformed relative abundances of bacterial taxa as classified by \textbf{a}) the 16S rDNA analysis or \textbf{b}) the metagenomic analysis in macrolide antibiotic-exposed and untreated control soil.]{
 		PCA ordination plots (PC1, PC2) of the CLR-transformed relative abundances of bacterial taxa as classified by \textbf{a}) the 16S rDNA analysis or \textbf{b}) the metagenomic analysis in macrolide antibiotic-exposed and untreated control soil.
 		PERMANOVA pseudo-$F$ and $p$-values with 999 permutations are displayed.
 		Shaded areas correspond to 95\% confidence ellipses of treatment groups.
@@ -41,7 +42,7 @@
 \begin{suppfigure}[H]
 	\centering
 		\includegraphics[width=\textwidth]{supp-figures/metagenomic/set-compartments-args-mges_v03.pdf}
-	\caption[Number of antibiotic resistance genes and mobile genetic elements detected within each compartment formed between the untreated control, low-, and high-dosed soil groups.]{
+	\caption[Number of antibiotic resistance genes and mobile genetic elements detected within each compartment formed between the untreated control, low-, and high-dosed soil groups, arranged by compartment size.]{
 		Number of antibiotic resistance genes and mobile genetic elements detected within each compartment formed between the untreated control, low-, and high-dosed soil groups, arranged by compartment size.
 		Shaded dots below the bar plots correspond to the compartment.
 	}
@@ -51,11 +52,10 @@
 \begin{suppfigure}[H]
 	\centering
 		\includegraphics[width=0.75\textwidth]{supp-figures/integron/percentages-cog-categories_v02.pdf}
-	\caption[Prevalence of COG functional categories assigned to integron gene cassette open reading frames.]{
+	\caption[Prevalence (in percentages) of COG functional categories among integron gene cassette open reading frames that were assigned a COG function category (\textit{n} = 5,206).]{
 		Prevalence (in percentages) of COG functional categories among integron gene cassette open reading frames that were assigned a COG function category (\textit{n} = 5,206).
 		Only COG functional categories with a prevalence over 0.5\% are shown.
 		Y-axis is logarithmically scaled and begins at 0.1\% for visual clarity.
-		\todo[color=blue!20]{Is it okay for the y-axis to begin at 0.1\% instead of 0\%?}
 	}
 	\label{supp-fig:percentages-cog-categories}
 \end{suppfigure}
@@ -66,21 +66,53 @@
 
 \begin{supptable}[H]
 	\centering
-		\includegraphics[width=\textwidth]{supp-tables/primers_v01.pdf}
-	\caption[PCR primer sequences, annealing temperatures, and expected amplicon sizes for integron gene cassette and 16S rDNA PCR amplification.]{
-		PCR primer sequences, annealing temperatures, and expected amplicon sizes for integron gene cassette and 16S rDNA PCR amplification.
+		\includegraphics[width=\textwidth]{supp-tables/primers_v03.pdf}
+	\caption[PCR primer sequences, annealing temperatures, and expected amplicon sizes for integron gene cassette and 16S rDNA PCR amplification \parencite{Stokes.2001, Klindworth.2013}.]{
+		PCR primer sequences, annealing temperatures, and expected amplicon sizes for integron gene cassette and 16S rDNA PCR amplification \parencite{Stokes.2001, Klindworth.2013}.
+		Degenerate bases follow the IUPAC standard ambiguity code.
     Red text indicates location of adapter overhang sequences.
-		\todo{Increase font size for this table.}
 	}
 	\label{supp-table:primers}
 \end{supptable}
 
 \begin{supptable}[H]
 	\centering
-		\includegraphics[width=\textwidth]{supp-tables/16S/16S-sequencing-statistics_v01.pdf}
-	\caption[Summary of sequencing statistics for the 16S rDNA sequence dataset.]{
-		Summary of sequencing statistics for the 16S rDNA sequence dataset.
-		\todo{Increase font size for this table.}
+		\includegraphics[width=\textwidth]{supp-tables/16S/sequencing-statistics-16S_v02.pdf}
+	\caption[16S rDNA amplicon sample sequence statistics for unprocessed (raw) and trimmed reads, and the percentages of input sequence reads merged by DADA2, with samples grouped by macrolide antibiotic dose.]{
+	16S rDNA amplicon sample sequence statistics for unprocessed (raw) and trimmed reads, and the percentages of input sequence reads merged by DADA2, with samples grouped by macrolide antibiotic dose.
+	Mean values are reported along with standard deviations (SD).
 	}
-	\label{supp-table:16S-sequencing-statistics}
+	\label{supp-table:sequencing-statistics-16S}
+\end{supptable}
+
+\begin{supptable}[H]
+	\centering
+		\includegraphics[width=\textwidth]{supp-tables/metagenomic/sequencing-statistics-metagenomic_v01.pdf}
+	\caption[Metagenomic DNA sample sequence statistics for unprocessed (raw) and trimmed reads, with samples grouped by macrolide antibiotic dose.]{
+	Metagenomic DNA sample sequence statistics for unprocessed (raw) and trimmed reads, with samples grouped by macrolide antibiotic dose.
+	The number of biological replicates within each treatment group are shown beside each analysis step.
+	Mean values are reported along with standard deviations (SD).
+	}
+	\label{supp-table:sequencing-statistics-metagenomic}
+\end{supptable}
+
+\begin{supptable}[H]
+	\centering
+		\includegraphics[width=\textwidth]{supp-tables/integron/sequencing-statistics-integron_v02.pdf}
+	\caption[Integron gene cassette amplicon sample sequence statistics for unprocessed (raw) reads, and assembly statistics for unfiltered (post-assembly) and filtered (post-cassette filtering) contigs, with samples grouped by macrolide antibiotic dose.]{
+	Integron gene cassette amplicon sample sequence statistics for unprocessed (raw) reads, and assembly statistics for unfiltered (post-assembly) and filtered (post-cassette filtering) contigs, with samples grouped by macrolide antibiotic dose.
+	The number of biological replicates within each treatment group are shown beside each analysis step.
+	Mean values are reported along with standard deviations (SD).
+	}
+	\label{supp-table:sequencing-statistics-integron}
+\end{supptable}
+
+\begin{supptable}[H]
+	\centering
+		\includegraphics[width=0.70\textwidth]{supp-tables/integron/integron-args-drug-classes_v01.pdf}
+	\caption[Counts of target drug classes for predicted antibiotic resistance genes within integron gene cassettes at each confidence level.]{
+	Counts of target drug classes for predicted antibiotic resistance genes within integron gene cassettes at each confidence level.
+	Values in the table are shaded based upon the minimum and maximum values in each column.
+	}
+	\label{supp-table:integron-args-drug-classes}
 \end{supptable}

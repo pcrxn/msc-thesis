@@ -13,14 +13,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \makeatletter
-%\numberwithin{figure}{chapter}
-\newenvironment{acknowledgements}%
-{\clearemptydoublepage
- \begin{center}
-  \section*{Acknowledgements}
- \end{center}
- \begingroup
-}{\newpage\endgroup}
+
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}
+  \pagestyle{fancyplain}% <- use fancyplain instead fancy
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  }
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+ % \@mainmatterfalse
+   }
 
 \newenvironment{dedication}%
 {\clearemptydoublepage
@@ -30,9 +46,9 @@
  \begingroup
 }{\newpage\endgroup}
 
-\newenvironment{preliminary}%
-{\pagestyle{plain}\pagenumbering{roman}}%
-{\pagenumbering{arabic}}
+% \newenvironment{preliminary}%
+% {\pagestyle{plain}\pagenumbering{roman}}%
+% {\pagestyle{plain}\pagenumbering{arabic}}
 
 %\addtoreflist{chapter}
 \newtheorem{theorem}{Theorem}[section]
@@ -61,50 +77,9 @@
 %% corresponds to \spacing{1.5} and double spaced is \spacing{1.66}.
 \def\normalspacing{1.25} % default line spacing
 
-
-%% Define the "thesis" page style.
-\if@twoside % If two-sided printing.
-\def\ps@thesis{\let\@mkboth\markboth
-   \def\@oddfoot{}
-   \let\@evenfoot\@oddfoot
-   \def\@oddhead{
-      {\sc\rightmark} \hfil \rm\thepage
-      }
-   \def\@evenhead{
-      \rm\thepage \hfil {\sc\leftmark}
-      }
-   \def\chaptermark##1{\markboth{\ifnum \c@secnumdepth >\m@ne
-      Chapter\ \thechapter. \ \fi ##1}{}}
-   \def\sectionmark##1{\markright{\ifnum \c@secnumdepth >\z@
-      \thesection. \ \fi ##1}}}
-\else % If one-sided printing.
-\def\ps@thesis{\let\@mkboth\markboth
-   \def\@oddfoot{}
-   \def\@oddhead{
-      {\sc\rightmark} \hfil \rm\thepage
-      }
-   \def\chaptermark##1{\markright{\ifnum \c@secnumdepth >\m@ne
-      Chapter\ \thechapter. \ \fi ##1}}}
-\fi
-
-\pagestyle{thesis}
-% Set up page layout.
-\setlength{\textheight}{9in} % Height of the main body of the text
-\setlength{\topmargin}{-.5in} % .5" margin on top of page
-\setlength{\headsep}{.5in}  % space between header and top of body
-\addtolength{\headsep}{-\headheight} % See The LaTeX Companion, p 85
-\setlength{\footskip}{.5in}  % space between footer and bottom of body
-\setlength{\textwidth}{6.25in} % width of the body of the text
-\setlength{\oddsidemargin}{.25in} % 1.25" margin on the left for odd pages
-\setlength{\evensidemargin}{0in} % 1.25"  margin on the right for even pages
-
-% Marginal notes
-\setlength{\marginparwidth}{.75in} % width of marginal notes
-\setlength{\marginparsep}{.125in} % space between marginal notes and text
-
 % Make each page fill up the entire page. comment this out if you
 % prefer.
-\flushbottom
+% \flushbottom
 
 \setcounter{tocdepth}{3} % Number the subsubsections
 \def\normalspacing{1.25} % default line spacing
@@ -155,15 +130,15 @@
   \fi
 }
 
-\newcommand\acknowlege[1]{%
-  \edef\@tempa{#1}%
-  \def\@tempb{}%
-  \ifx\@tempa\@tempb
-	\else \newpage \Large Acknowlegements\normalsize\\\indent\\#1\newpage
-  \fi
-}
+% \newcommand\acknowledge[1]{%
+%   \edef\@tempa{#1}%
+%   \def\@tempb{}%
+%   \ifx\@tempa\@tempb
+% 	\else \newpage \Large Acknowledgments\normalsize\\\indent\\#1\newpage
+%   \fi
+% }
 
-%\renewcommand{\appendixtocname}{\Huge \textbf{List of Appendices} \normalsize}
+\renewcommand{\appendixtocname}{\Huge \textbf{List of Appendices} \normalsize}
 \newcommand{\blank}{\hspace{-2mm}}
 \newcommand{\super}{Dr. Edward Topp} %supervisor
 \newcommand{\superj}{} %joint supervisor, if there is one, leave blank if not (lbin)... only one of the three.
@@ -182,7 +157,7 @@
 \newcommand{\lastname}{Brown}
 %\renewcommand{\author}[1]{\ifx\empty#1\else\gdef\@author{#1}\fi}
 \newcommand{\authorname}{{\firstname} {\middlename} {\lastname}}
-\newcommand{\titl}{A decade of macrolide antibiotic exposure affects the soil bacterial community, resistome, and mobilome}
+\newcommand{\titl}{Response of the soil bacterial community, resistome, and mobilome to a decade of macrolide antibiotic contamination}
 \newcommand{\spinetitle}{Plib}%only if the above is more than 60 characters
 \newcommand{\thesisformat}{Monograph} %or Integrated Article
 \newcommand{\gyear}{\number\year}
@@ -190,7 +165,7 @@
 %Type information about coauthorship here/
 
 }
-\newcommand{\makeacknowlege} {
+\newcommand{\makeacknowledge} {
 Supervisors, lab technicians, labmates, funding sources.
 }
 \newcommand{\listappendixname}{List of Appendices}
